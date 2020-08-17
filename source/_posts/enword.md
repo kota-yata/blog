@@ -1,6 +1,7 @@
 ---
 title: "Encoding, Encryption, Hashing, Obfuscationの意味"
 tags: [encryption, security, english]
+category: 英語
 date: 2020-08-10
 excerpt: 分かるようで分からない4つの単語の概念
 ---

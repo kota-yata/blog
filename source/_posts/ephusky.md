@@ -1,6 +1,7 @@
 ---
 title: "Eslint&Prettierとhuskyで幸せになろう！"
 tags: [eslint,prettier,husky,pre-commit]
+category: コーディング
 date: 2020-08-15
 excerpt: git commit時に自動でフォーマットする
 ---

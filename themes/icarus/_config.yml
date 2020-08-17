@@ -19,7 +19,7 @@ head:
         type: blog
         # Page URL (og:url) (optional)
         # You should leave this blank for most of the time
-        url: https://in-n-output.netlify.app/
+        url: https://blog.kotayatagai.cf
         # Page cover (og:image) (optional)
         # You should leave this blank for most of the time
         image: 
@@ -55,7 +55,7 @@ head:
         description: In-N-Out Burgerとは一切関係ありません
         # Page URL (optional)
         # You should leave this blank for most of the time
-        url: https://in-n-output.netlify.app/
+        url: https://blog.kotayatagai.cf
         # Page author (article:author) (optional)
         # You should leave this blank for most of the time
         author: Kota Yatagai
@@ -75,7 +75,7 @@ navbar:
     menu:
         Home: /
         Archives: /archives
-        # Categories: /categories
+        Categories: /categories
         Tags: /tags
         About: https://kotayatagai.cf
     # Links to be shown on the right of the navigation bar
@@ -223,22 +223,22 @@ widgets:
     # Recent posts widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
-        position: left
+        position: right
         type: recent_posts
     # Archives widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
-        position: left
+        position: right
         type: archives
     # Tags widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
-        position: left
+        position: right
         type: tags
     # Google FeedBurner email subscription widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
-        position: left
+        position: right
         type: subscribe_email
         # Hint text under the email input
         description: 新着記事や更新の際に通知します

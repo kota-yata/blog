@@ -1,6 +1,7 @@
 ---
 title: "TCP通信におけるTCPプロトコルの動き"
 tags: [tcp, network]
+category: ネットワーク
 date: 2020-08-09
 excerpt: 曖昧だったTCP通信の再確認
 ---

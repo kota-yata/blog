@@ -20,11 +20,11 @@ widget:
     tag_cloud: 'タグクラウド'
     catalogue: 'カタログ'
 article:
-    more: 'Read More'
+    more: '記事を読む'
     comments: 'コメント'
-    read: 'read'
-    about: 'About'
-    words: 'words'
+    read: ' '
+    about: '記事'
+    words: '文字'
 search:
     search: 'Search'
     hint: 'Type something...'
