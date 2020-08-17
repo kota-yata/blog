@@ -19,7 +19,7 @@ head:
         type: blog
         # Page URL (og:url) (optional)
         # You should leave this blank for most of the time
-        url: https://blog.kotayatagai.cf
+        url: https://in-n-output.netlify.app/
         # Page cover (og:image) (optional)
         # You should leave this blank for most of the time
         image: 
@@ -55,7 +55,7 @@ head:
         description: In-N-Out Burgerとは一切関係ありません
         # Page URL (optional)
         # You should leave this blank for most of the time
-        url: https://blog.kotayatagai.cf
+        url: https://in-n-output.netlify.app/
         # Page author (article:author) (optional)
         # You should leave this blank for most of the time
         author: Kota Yatagai
@@ -281,7 +281,7 @@ plugins:
     # https://analytics.google.com
     google_analytics:
         # Google Analytics tracking ID
-        tracking_id: 
+        tracking_id: UA-175471871-1
     # Hotjar user feedback plugin
     # https://www.hotjar.com/
     hotjar:
