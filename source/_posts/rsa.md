@@ -2,7 +2,7 @@
 title: "RSA暗号 -実際の計算とRSAがもたらす誤解"
 tags: [algorithm, encryption]
 category: 暗号
-date: 2020-08-15
+date: 2020-08-18
 excerpt: RSA暗号の実際の計算。実装に関してはまた後ほど。。。
 ---
 
