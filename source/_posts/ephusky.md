@@ -19,12 +19,12 @@ OS : Mac OS
 
 ## Eslintをインストールする
 ```
-$ npm install eslint
+npm install eslint
 ```
 
 ## Eslint init
 ```
-$ ./node_modules/eslint/bin/eslint.js --init
+./node_modules/eslint/bin/eslint.js --init
 ```
 ここで色々質問されるので、お好みで答えていきましょう。各質問の詳細は[こちらの記事](https://qiita.com/jobscale/items/eae90308ad885fa2c78c)がおすすめ
 
@@ -71,16 +71,7 @@ module.exports = {
 };
 ```
 注意点としては、prettierとeslintでルールが競合してしまうとエラーが止まらなくなってしまうので必ずルールは矛盾させないこと。
-## huskyインストール
-```
-$ npm install husky --save-dev
-```
-
-## lint-stagedインストール
-```
-$ npm install lint-staged --save-dev
-```
-ぶっちゃけまとめて
+## huskyとlint-stagedインストール
 ```
 npm install husky lint-staged  --save-dev
 ```
