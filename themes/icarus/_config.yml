@@ -19,7 +19,7 @@ head:
         type: blog
         # Page URL (og:url) (optional)
         # You should leave this blank for most of the time
-        url: https://in-n-output.netlify.app/
+        url: https://blog.kota-yata.com/
         # Page cover (og:image) (optional)
         # You should leave this blank for most of the time
         image: 
@@ -55,7 +55,7 @@ head:
         description: In-N-Out Burgerとは一切関係ありません
         # Page URL (optional)
         # You should leave this blank for most of the time
-        url: https://in-n-output.netlify.app/
+        url: https://blog.kota-yata.com/
         # Page author (article:author) (optional)
         # You should leave this blank for most of the time
         author: Kota Yatagai
@@ -77,12 +77,12 @@ navbar:
         Archives: /archives
         Categories: /categories
         Tags: /tags
-        About: https://kotayatagai.cf
+        About: https://www.kota-yata.com
     # Links to be shown on the right of the navigation bar
     links:
         Download on GitHub:
             icon: fab fa-github
-            url: 'https://github.com/kota-yata/in-n-output'
+            url: 'https://github.com/kota-yata'
 # Page footer configurations
 footer:
     # Links to be shown on the right of the footer section
@@ -179,7 +179,7 @@ widgets:
         # Author name
         author: Kota Yatagai
         # Author title
-        author_title: 17歳。npmパッケージとか作ってます
+        author_title: フロントエンド開発者
         # Author's current location
         location: Tokyo, Japan
         # URL or path to the avatar image
@@ -213,7 +213,7 @@ widgets:
         type: links
         # Names and URLs of the sites
         links:
-            Portfolio: 'https://kotayatagai.cf'
+            Portfolio: 'https://www.kota-yata.com'
             Wantedly: 'https://www.wantedly.com/users/139410568'
     # Categories widget configurations
     -
@@ -236,23 +236,23 @@ widgets:
         position: right
         type: tags
     # Google FeedBurner email subscription widget configurations
-    -
+    #-
         # Where should the widget be placed, left sidebar or right sidebar
-        position: right
-        type: subscribe_email
+        #position: right
+        #type: subscribe_email
         # Hint text under the email input
-        description: 新着記事や更新の際に通知します
+        #description: 新着記事や更新の際に通知します
         # Feedburner ID
-        feedburner_id: ''
+        #feedburner_id: ''
     # Google AdSense unit configurations
-    -
+    #-
         # Where should the widget be placed, left sidebar or right sidebar
-        position: left
-        type: adsense
+        #position: left
+        #type: adsense
         # AdSense client ID
-        client_id: ''
+        #client_id: ''
         # AdSense AD unit ID
-        slot_id: ''
+        #slot_id: ''
 # Plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/
 plugins:

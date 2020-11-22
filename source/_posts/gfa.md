@@ -1,7 +1,7 @@
 ---
 title: "毎朝5時にGoogle Formに自動回答したい"
 tags: [python, selenium, scraping, googleform, aws]
-category: 自動化
+category: コーディング
 date: 2020-08-11
 excerpt: SeleniumとLambdaを使った自動化の記事
 ---

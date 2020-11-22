@@ -6,7 +6,7 @@ date: 2020-08-15
 excerpt: git commit時に自動でフォーマットする
 ---
 
-![](https://live.staticflickr.com/65535/50228712952_343e6e5a59_c.jpg)
+![img](https://live.staticflickr.com/65535/50228712952_343e6e5a59_c.jpg)
 
 PrettierやEslintを毎度毎度コマンドから動かしてフォーマットするのもかったるいので、huskyでコミット時に自動整形してくれるように設定したいと思います。eslintrc等はnpmモジュール用の設定で進めるのでご了承ください。
 
