@@ -1,9 +1,9 @@
 ---
-title: "TCP通信におけるTCPプロトコルの動き"
+title: "TCPの各フェーズ概要"
 tags: [tcp, network]
 category: ネットワーク
 date: 2020-08-09
-excerpt: 曖昧だったTCP通信の再確認
+excerpt: TCP通信の概略
 ---
 
 ![img](https://live.staticflickr.com/65535/50205957036_200c4542a4_c.jpg)

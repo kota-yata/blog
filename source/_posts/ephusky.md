@@ -19,7 +19,7 @@ OS : Mac OS
 
 ## Eslintをインストールする
 ```
-npm install eslint
+yarn add eslint
 ```
 
 ## Eslint init
@@ -30,7 +30,7 @@ npm install eslint
 
 ## Prettierをインストールする
 ```
-npm install prettier eslint-config-prettier eslint-plugin-prettier --save-dev
+yarn add prettier eslint-config-prettier eslint-plugin-prettier -D
 ```
 ## eslintrc.jsの設定
 先ほどのeslint initで自動的に生成された.eslintrc.js(.eslint.json,.eslint.ymlnの場合もある)をPrettier用に設定します
@@ -73,7 +73,7 @@ module.exports = {
 注意点としては、prettierとeslintでルールが競合してしまうとエラーが止まらなくなってしまうので必ずルールは矛盾させないこと。
 ## huskyとlint-stagedインストール
 ```
-npm install husky lint-staged  --save-dev
+yarn add husky lint-staged  -D
 ```
 でも良い
 ## husky,lint-stagedの初期設定

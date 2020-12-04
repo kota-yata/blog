@@ -1,5 +1,5 @@
 ---
-title: "RSA暗号 -実際の計算とRSAがもたらす誤解"
+title: "RSA暗号を計算する"
 tags: [algorithm, encryption]
 category: 暗号
 date: 2020-08-18
