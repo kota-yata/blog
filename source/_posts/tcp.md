@@ -1,8 +1,8 @@
 ---
-title: "TCPの各フェーズ概要"
+title: "TCPが繋がって切れるまで"
 tags: [tcp, network]
 category: ネットワーク
-date: 2020-08-09
+date: 2020-12-22
 excerpt: TCP通信の概略
 ---
 
