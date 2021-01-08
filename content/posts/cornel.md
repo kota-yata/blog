@@ -1,6 +1,6 @@
 ---
 title: SSIの論文を和訳してみる
-date: "2021-01-05"
+date: "2020-12-20"
 template: "post"
 draft: false
 category: "論文"
@@ -9,7 +9,7 @@ tags:
   - "ssi"
   - "english"
 description: "SSIの論文、\"Self-sovereign Identity − Opportunities and Challenges for the Digital Revolution\"を和訳します"
-socialImage: "/media/42-line-bible.jpg"
+socialImage: "/photo.jpg"
 ---
 
 # 訳者によるまえがき

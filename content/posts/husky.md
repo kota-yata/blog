@@ -10,7 +10,7 @@ tags:
   - "husky"
   - "pre-commit"
 description: "git commit時に自動でフォーマットする"
-socialImage: "/media/image-0.jpg"
+socialImage: "/photo.jpg"
 ---
 
 PrettierやEslintを毎度毎度コマンドから動かしてフォーマットするのもかったるいので、huskyでコミット時に自動整形してくれるように設定したいと思います。eslintrc等はnpmモジュール用の設定で進めるのでご了承ください。
