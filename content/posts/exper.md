@@ -2,7 +2,7 @@
 title: "工業的製法と化合物生成アルゴリズム"
 date: "2021-01-31"
 template: "post"
-draft: false
+draft: true
 category: "化学"
 tags:
   - "science"
