@@ -32,7 +32,7 @@ module.exports = {
       email: 'kota@yatagai.com',
       facebook: '',
       instagram: '',
-      telegram: '',
+      telegram: 'kota_yata',
       twitter: 'kota_yata',
       github: 'kota-yata',
       rss: 'https://blog.kota-yata/rss.xml',
