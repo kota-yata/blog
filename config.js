@@ -35,7 +35,7 @@ module.exports = {
       telegram: '',
       twitter: 'kota_yata',
       github: 'kota-yata',
-      rss: 'https://blog.kota-yata/feed',
+      rss: 'https://blog.kota-yata/rss.xml',
       vkontakte: '',
       linkedin: '',
       line: '',
