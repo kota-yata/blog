@@ -8,7 +8,7 @@ module.exports = {
   copyright: '© 2021 Kota Yatagai',
   disqusShortname: '',
   postsPerPage: 10,
-  googleAnalyticsId: 'UA-73379983-2',
+  googleAnalyticsId: 'G-PXGLV3VYL5',
   useKatex: true,
   menu: [
     {
@@ -35,7 +35,7 @@ module.exports = {
       telegram: '',
       twitter: 'kota_yata',
       github: 'kota-yata',
-      rss: '',
+      rss: 'https://blog.kota-yata/feed',
       vkontakte: '',
       linkedin: '',
       line: '',

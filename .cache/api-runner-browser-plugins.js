@@ -9,7 +9,7 @@ module.exports = [{
       options: {"plugins":[],"modulePath":"/Users/kota/dev/repositories/blog/src/cms/index.js"},
     },{
       plugin: require('../node_modules/gatsby-plugin-google-gtag/gatsby-browser.js'),
-      options: {"plugins":[],"trackingIds":["UA-73379983-2"],"pluginConfig":{"head":true}},
+      options: {"plugins":[],"trackingIds":["G-PXGLV3VYL5"],"pluginConfig":{"head":true}},
     },{
       plugin: require('../node_modules/gatsby-plugin-manifest/gatsby-browser.js'),
       options: {"plugins":[],"name":"kota-yata","short_name":"kota-yata","start_url":"/","background_color":"#FFF","theme_color":"#F7A046","display":"standalone","icon":"static/photo.jpg","legacy":true,"theme_color_in_head":true,"cache_busting_mode":"query","crossOrigin":"anonymous","include_favicon":true,"cacheDigest":"a3693cf9376e195d24b80cd884618a9a"},

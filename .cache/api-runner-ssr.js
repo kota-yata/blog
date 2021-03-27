@@ -6,7 +6,7 @@ var plugins = [{
       options: {"plugins":[],"offsetY":0,"className":"anchor"},
     },{
       plugin: require('/Users/kota/dev/repositories/blog/node_modules/gatsby-plugin-google-gtag/gatsby-ssr'),
-      options: {"plugins":[],"trackingIds":["UA-73379983-2"],"pluginConfig":{"head":true}},
+      options: {"plugins":[],"trackingIds":["G-PXGLV3VYL5"],"pluginConfig":{"head":true}},
     },{
       plugin: require('/Users/kota/dev/repositories/blog/node_modules/gatsby-plugin-sitemap/gatsby-ssr'),
       options: {"plugins":[],"query":"\n          {\n            site {\n              siteMetadata {\n                siteUrl: url\n              }\n            }\n            allSitePage(\n              filter: {\n                path: { regex: \"/^(?!/404/|/404.html|/dev-404-page/)/\" }\n              }\n            ) {\n              edges {\n                node {\n                  path\n                }\n              }\n            }\n          }\n        ","output":"/sitemap.xml","createLinkInHead":true},
