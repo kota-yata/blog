@@ -7,7 +7,7 @@ category: "英語"
 tags:
   - "english"
 description: "英語むずい"
-socialImage: "/photo.jpg"
+socialImage: "/ogp.webp"
 ---
 
 [SSI](https://lastrust.io/2020/06/03/whatis-self-sovereign-identity/)の研究を始めて、まだ下調べの段階なので仕様書を頑張って読んでいたのだが、ちょっと論文でも読んでみようかなという出来心でGoogle Scholorで上の方にあったSSIの論文を読むことにした。

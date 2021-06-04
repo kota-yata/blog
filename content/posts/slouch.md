@@ -8,7 +8,7 @@ tags:
   - "svelte"
   - "markdown"
 description: "SvelteでMarkdownエディタ作ったよという話"
-socialImage: "/photo.jpg"
+socialImage: "/ogp.webp"
 ---
 
 去年の8月ごろにSvelteを知って、それ以来ちまちまとWebサイト作ったりWebアプリ作ったりしてたんですが、NuxtとかReactやったことがないのもあって仮想DOMへの憧れが捨てられませんでした。というわけで、しばらくSvelteと距離を置くための最後の作品としてMarkdownエディタを作りました。

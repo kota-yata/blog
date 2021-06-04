@@ -8,7 +8,7 @@ tags:
   - "english"
   - "security"
 description: "分かるようで分からない4つの単語の概念を調べました"
-socialImage: "/photo.jpg"
+socialImage: "/ogp.webp"
 ---
 
 ある日ネットサーフィンをしていたら[Encoding vs. Encryption vs. Hashing vs. Obfuscation](https://danielmiessler.com/study/encoding-encryption-hashing-obfuscation/)という記事を見つけました。この四つの単語はそれぞれ実際には全く違う意味なんだけど「違いを説明せよ」と突然言われたら確かに説明できないなぁ、と思ったので元記事の内容に沿って各単語の意味を整理しておきます。

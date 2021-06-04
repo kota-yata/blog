@@ -9,7 +9,7 @@ tags:
   - "percom"
   - "javascript"
 description: "Percomのリファクタリングと末尾呼び出し最適化の話"
-socialImage: "/photo.jpg"
+socialImage: "/ogp.webp"
 ---
 
 去年の夏頃に趣味で作った[Percom](https://github.com/kota-yata/Percom)なる、順列と組み合わせ列挙をやってくれるnpmパッケージを久々にリファクタリングした時の記録です。Node.js使ってて「順列/組み合わせ列挙してぇなぁ」とか思ったことないのでしばらく前にリポジトリ見てUsed by 5になってた時は不思議な気分でした。
