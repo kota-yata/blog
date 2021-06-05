@@ -9,7 +9,7 @@ tags:
   - "ssi"
   - "english"
 description: "SSIの論文、\"Self-sovereign Identity − Opportunities and Challenges for the Digital Revolution\"を和訳します"
-socialImage: "/ogp.webp"
+socialImage: "/ogp.jpeg"
 ---
 
 # 訳者によるまえがき

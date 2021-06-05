@@ -8,7 +8,7 @@ tags:
   - "algorithm"
   - "encryption"
 description: "RSA暗号の暗号化と復号をしてみようという話。実装に関してはまた後ほど"
-socialImage: "/ogp.webp"
+socialImage: "/ogp.jpeg"
 ---
 
 鍵交換アルゴリズムとしてはすでに[脆弱性](https://wired.jp/2019/09/05/rsa-encryption-signature-validation-flaws/)が見つかっており、めっちゃ使われているという実績のみでCRYPTRECの運用監視暗号リストにへばりついているRSA暗号なわけですが、電子署名の、特に[署名検証においてはまだまだ現役](http://blog.livedoor.jp/k_urushima/archives/1721840.html)です。多分。

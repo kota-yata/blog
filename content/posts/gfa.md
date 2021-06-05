@@ -11,7 +11,7 @@ tags:
   - googleform
   - aws
 description: "SeleniumとLambdaを使った自動化の記事"
-socialImage: "/ogp.webp"
+socialImage: "/ogp.jpeg"
 ---
 
 みなさんこんにちは。夏ですね。

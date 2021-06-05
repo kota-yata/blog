@@ -8,7 +8,7 @@ tags:
   - "tcp"
   - "network"
 description: "TCPのハンドシェイクの概略"
-socialImage: "/ogp.webp"
+socialImage: "/ogp.jpeg"
 ---
 
 最近ふと、「あれ？俺TCP通信理解してなくね？」と思ったので軽くTCPの働きをまとめておきます

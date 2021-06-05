@@ -9,7 +9,7 @@ tags:
   - "react"
   - "blog"
 description: "HexoからGatsby.jsのブログテンプレートに移行したぜ"
-socialImage: "/ogp.webp"
+socialImage: "/ogp.jpeg"
 ---
 
 今まで個人のブログは"In-N-Output"という滑り散らかした名前で、Hexoの[Icarus](https://github.com/ppoffice/hexo-theme-icarus)テーマのブログをこのドメインに公開してました。ただこのIcarusテーマ、アドセンスタグとか親切なのは良いんだけど少しごちゃごちゃし過ぎてて美しく無いんです。記事のページにも関連記事やら他のリンクがいっぱい貼られて、なおかつデザインもモダンとは言えない感じだったのでブログを書くモチベーションの妨げになってました。

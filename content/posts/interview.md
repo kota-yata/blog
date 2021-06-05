@@ -7,7 +7,7 @@ category: "コミュニケーション"
 tags:
   - "interview"
 description: "普通に楽しかった"
-socialImage: "/ogp.webp"
+socialImage: "/ogp.jpeg"
 ---
 
 面接相手の企業の名前を出しても問題はないと思うのですが、万が一僕がセクハラかなんかで社会的に死んだ時に風評被害が出ないようにひとまず社名は伏せておきます。

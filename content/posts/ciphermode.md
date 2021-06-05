@@ -8,7 +8,7 @@ tags:
   - "cipher"
   - "encryption"
 description: "暗号を基礎から勉強しようの会"
-socialImage: "/ogp.webp"
+socialImage: "/ogp.jpeg"
 ---
 
 暗号モードというのはブロック暗号において、長い平文を暗号化するための前置き的な手順です。言い換えれば暗号アルゴリズムの入力の決め方みたいなもの。
