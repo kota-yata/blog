@@ -31,7 +31,7 @@ module.exports = {
     contacts: {
       email: 'kota@yatagai.com',
       facebook: '',
-      instagram: '',
+      instagram: 'kota_yata',
       telegram: 'kota_yata',
       twitter: 'kota_yata',
       github: 'kota-yata',
