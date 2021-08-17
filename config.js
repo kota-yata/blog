@@ -19,20 +19,15 @@ module.exports = {
       label: 'About me',
       path: 'https://kota-yata.com'
     },
-    {
-      label: 'Contact me',
-      path: '/pages/contacts'
-    }
   ],
   author: {
     name: 'Kota Yatagai',
     photo: '/photo.jpg',
-    bio: '17yo / フロントエンド開発者',
+    bio: '高3 / 開発者 kota-yata.com',
     contacts: {
       email: 'kota@yatagai.com',
       facebook: '',
       instagram: 'kota_yata',
-      telegram: 'kota_yata',
       twitter: 'kota_yata',
       github: 'kota-yata',
       rss: 'https://blog.kota-yata.com/rss.xml',
