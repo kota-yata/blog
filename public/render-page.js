@@ -1738,7 +1738,7 @@ module.exports = {
   url: 'https://blog.kota-yata.com',
   pathPrefix: '/',
   title: 'kota-yata',
-  subtitle: '17yo / フロントエンド開発者',
+  subtitle: '高3 / 開発者 kota-yata.com',
   copyright: '© 2021 Kota Yatagai',
   disqusShortname: '',
   postsPerPage: 10,
@@ -1749,7 +1749,7 @@ module.exports = {
     path: '/'
   }, {
     label: 'About me',
-    path: '/pages/about'
+    path: 'https://kota-yata.com'
   }, {
     label: 'Contact me',
     path: '/pages/contacts'
@@ -1761,7 +1761,7 @@ module.exports = {
     contacts: {
       email: 'kota@yatagai.com',
       facebook: '',
-      instagram: '',
+      instagram: 'kota_yata',
       telegram: 'kota_yata',
       twitter: 'kota_yata',
       github: 'kota-yata',
