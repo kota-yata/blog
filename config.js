@@ -40,6 +40,7 @@ module.exports = {
       youtube: '',
       soundcloud: '',
       medium: '',
+      telegram: ''
     }
   }
 };

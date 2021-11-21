@@ -2,7 +2,7 @@
 title: "宗教が嫌い"
 date: "2021-08-18"
 template: "post"
-draft: false
+draft: true
 category: "思想"
 tags:
   - "religion"
