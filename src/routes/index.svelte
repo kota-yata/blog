@@ -37,10 +37,10 @@
   {/each}
 </Page>
 <div class="to-posts"><a href="/posts/">View All Posts</a></div>
-<div class="special-ipfs">
+<!-- <div class="special-ipfs">
   <h4>🚀 Launched On The Future 🚀</h4>
   <p>{@html ipfs}</p>
-</div>
+</div> -->
 {#each topics as topic}
   <TopicSection category={topic.category} description={topic.description} />
 {/each}
