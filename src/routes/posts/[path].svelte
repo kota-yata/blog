@@ -71,6 +71,7 @@
       &-title {
         padding: 0 0 10px 0;
         font-size: 48px;
+        border: none;
       }
       &-date {
         color: $dark-gray;
