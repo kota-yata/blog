@@ -1,9 +1,6 @@
 <script lang="ts">
-  import { getClassName } from './className';
-
   export let meta: postMeta = {} as postMeta;
   export let displayEyecatch = false;
-  const className = getClassName(meta.meta.category);
 </script>
 
 <div class="container">
@@ -15,7 +12,7 @@
     </picture>
   {/if}
   <div class="info">
-    <span class="info-category {className}">{meta.meta.category}</span>
+    <span class="info-tag">{meta.meta.category}</span>
     <span class="info-date">{meta.meta.date}</span>
   </div>
   <h3><a href="/posts/{meta.path}/">{meta.meta.title}</a></h3>
@@ -25,6 +22,9 @@
 <style lang="scss">
   @import '../../styles/variable.scss';
   .container {
+    a {
+      color: $code;
+    }
     width: 100%;
     & > picture > img {
       width: 100%;
@@ -34,11 +34,12 @@
       padding: 10px 0 0 0;
       font-size: 14px;
       font-weight: 600;
-      &-category {
+      &-tag {
+        color: $orange;
         padding-right: 5px;
       }
       &-date {
-        color: $gray;
+        color: gray;
       }
     }
     & > h3 {

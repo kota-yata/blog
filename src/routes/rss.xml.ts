@@ -4,8 +4,8 @@ const xml = (posts: postMeta[]) => `<?xml version="1.0" encoding="UTF-8" ?>
 <rss xmlns:dc="https://purl.org/dc/elements/1.1/" xmlns:content="https://purl.org/rss/1.0/modules/content/" xmlns:atom="https://www.w3.org/2005/Atom" version="2.0">
 <channel>
   <title>Kota Yatagai</title>
-  <link>https://kota-yata.com</link>
-  <description><![CDATA[Personal Blog & Stuffs by Kota Yatagai]]></description>
+  <link>https://blog.kota-yata.com</link>
+  <description><![CDATA[Technical posts by Kota Yatagai]]></description>
   ${posts.map(
     post => {
       // Date format adaptation for sugokunaritai-gakusei-group/sgg-feed
@@ -17,10 +17,10 @@ const xml = (posts: postMeta[]) => `<?xml version="1.0" encoding="UTF-8" ?>
           <description><![CDATA[${post.meta.description}]]></description>
           <category>${post.meta.category}</category>
           <author>kota-yata</author>
-          <link>https://kota-yata.com/posts/${post.path}</link>
-          <guid isPermaLink="true">https://kota-yata.com/posts/${post.path}</guid>
+          <link>https://blog.kota-yata.com/posts/${post.path}</link>
+          <guid isPermaLink="true">https://blog.kota-yata.com/posts/${post.path}</guid>
           <pubDate><![CDATA[${date.toUTCString()}]]></pubDate>
-          <enclosure url="${`https://kota-yata.com/media/optimized/${post.meta.ogp}.webp` || `https://kota-yata.com/ogp.webp`}" length="0" type="image/webp"/>
+          <enclosure url="${`https://blog.kota-yata.com/media/optimized/${post.meta.ogp}.webp` || `https://blog.kota-yata.com/ogp.webp`}" length="0" type="image/webp"/>
           <dc:creator>Kota Yatagai</dc:creator>
         </item>
       `;

@@ -37,7 +37,7 @@ export const getPosts = (num = 0, category = ''): postMeta[] => {
 // Getting posts with given filters from client
 // Simply fetching /posts.json since it should be already generated
 export const getPostsClient = async (doFetch: (arg0: string) => Promise<Response>, num = 0, category = ''): Promise<postMeta[]> => {
-  const url = '/posts.json';
+  const url = '/index.json';
   const res = await doFetch(url);
   if (!res.ok) return;
   const posts: postMeta[] = await res.json();

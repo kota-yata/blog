@@ -9,11 +9,8 @@
 </script>
 
 <script lang="ts">
-  import Page from '$lib/page.svelte';
-  import { getClassName } from '$lib/posts/className';
   import { onMount } from 'svelte';
   export let post: post;
-  const className = getClassName(post.meta.category);
   let twitterText: string;
   let pocketText: string;
   let instaPaperText: string;
@@ -27,26 +24,26 @@
 <svelte:head>
   <title>{post.meta.title}</title>
   <meta name="description" content={post.meta.description} />
-  <meta property="og:url" content="https://kota-yata.com/posts/{post.path}" />
+  <meta property="og:url" content="https://blog.kota-yata.com/posts/{post.path}" />
   <meta property="og:title" content={post.meta.title} />
-  <meta property="og:image" content="https://kota-yata.com/media/optimized/{post.meta.ogp}.webp" />
+  <meta property="og:image" content="https://blog.kota-yata.com/media/optimized/{post.meta.ogp}.webp" />
   <meta property="og:description" content={post.meta.description} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@kota_yata" />
 </svelte:head>
 
-<Page>
+<div class="root">
   <div class="info">
     <h1 class="info-title">{post.meta.title}</h1>
     <span class="info-date">{post.meta.date}</span>
-    <span class="info-category {className}">{post.meta.category}</span>
+    <span class="info-category">{post.meta.category}</span>
   </div>
   <div class="post">
     {@html post.body}
   </div>
   <div class="share">
     <a class="share-twitter" href={twitterText} target="blank"
-      ><img alt="Twitter share button" src="/twitter.svg" width="25px" height="25px" /></a
+      ><img alt="Twitter share button" src="/twitter-white.svg" width="25px" height="25px" /></a
     >
     <a class="share-pocket" href={pocketText} target="blank"
       ><img alt="Pocket share button" src="/pocket.svg" width="25px" height="25px" /></a
@@ -55,51 +52,70 @@
       ><img alt="InstaPaper share button" src="/instapaper.svg" width="25px" /></a
     >
   </div>
-</Page>
+  <div class="back">
+    <a href="/">全投稿に戻る</a>
+  </div>
+</div>
 
 <style lang="scss">
   @import '../../styles/variable.scss';
 
-  .info {
-    padding-bottom: 50px;
-    font-weight: 600;
-    &-title {
-      padding: 0 0 10px 0;
-      font-size: 48px;
-    }
-    &-date {
-      color: $gray;
-      padding-right: 10px;
-    }
-  }
-  .share {
+  .root {
     width: 100%;
-    margin-top: 50px;
-    text-align: center;
-    & > a {
-      cursor: pointer;
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      padding: 17.5px;
-      margin: 0 10px;
-      display: inline-block;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 10vh;
+    .info {
+      padding-bottom: 50px;
+      font-weight: 600;
+      &-title {
+        padding: 0 0 10px 0;
+        font-size: 48px;
+        border: none;
+      }
+      &-date {
+        color: $dark-gray;
+        padding-right: 10px;
+      }
+      &-category {
+        color: $orange;
+      }
     }
-    &-twitter {
-      background: $twitter;
+    .share {
+      width: 100%;
+      margin: 50px 0;
+      text-align: center;
+      & > a {
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        padding: 17.5px;
+        margin: 0 10px;
+        display: inline-block;
+      }
+      &-twitter {
+        background: $twitter;
+      }
+      &-pocket {
+        background: $pocket;
+      }
+      &-instapaper {
+        background: $insta-paper;
+      }
     }
-    &-pocket {
-      background: $pocket;
-    }
-    &-instapaper {
-      background: $insta-paper;
+    .back {
+      text-align: center;
     }
   }
 
   @media screen and (max-width: 700px) {
-    .info {
-      &-title {
-        font-size: 35px;
+    .root {
+      width: 95%;
+      .info {
+        &-title {
+          font-size: 28px !important;
+        }
       }
     }
   }

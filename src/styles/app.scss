@@ -8,7 +8,7 @@ html, body {
   background: $background;
   color: $primary;
   font-size: 16px;
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-family: 'Inter', 'ヒラギノ角ゴ ProN', 'Noto Sans JP', Arial, Helvetica, sans-serif;
   font-weight: 400;
 }
 
@@ -29,13 +29,15 @@ html, body {
 
 h1 {
   font-size: 35px;
-  margin: 0;
-  padding: 30px 0 20px 0;
+  margin: 0 0 10px 0;
+  padding: 30px 0 10px 0;
+  border-bottom: 3px $border-white solid;
 }
 h2 {
   font-size: 30px;
-  margin: 0;
-  padding: 30px 0 20px 0;
+  margin: 0 0 10px 0;
+  padding: 30px 0 10px 0;
+  border-bottom: 2px $border-white solid;
 }
 h3 {
   font-size: 24px;
@@ -65,7 +67,6 @@ p {
   padding-left: 10px;
 }
 a {
-  color: inherit;
   transition: 0.2s;
   &:hover {
     opacity: 0.6;
@@ -103,7 +104,8 @@ table {
 
 code {
   background: $code;
-  padding: 0 5px;
+  color: $white;
+  padding: 2px 5px;
   margin: 0 3px;
   border-radius: 5px;
   font-size: 14px;
@@ -125,13 +127,16 @@ pre {
 }
 
 strong {
-  color: $orange;
+  color: $black;
 }
 
 blockquote {
   width: calc(100% - 10px);
   margin-left: 10px;
   border-left: 4px $dark-gray solid;
+  & > p {
+    color: $dark-gray;
+  }
 }
 
 .algorithm {
@@ -175,25 +180,28 @@ blockquote {
 }
 
 @media screen and (max-width: 700px) {
-  h1 {
-    font-size: 33px;
+  body,html {
+    font-size: 13px;
+    font-weight: 500;
   }
-  h2 {
+  h1 {
     font-size: 28px;
   }
+  h2 {
+    font-size: 25px;
+  }
   h3 {
-    font-size: 23px;
+    font-size: 22px;
   }
   h4 {
     font-size: 19px;
   }
   h5 {
-    font-size: 17px;
+    font-size: 16px;
   }
-
-  .post {
-    img {
-      width: 100%;
-    }
+  p {
+    font-size: 13px;
+    line-height: 22px;
+    font-weight: 500;
   }
 }
