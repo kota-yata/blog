@@ -58,14 +58,15 @@
     .container {
       display: block;
       .profile {
-        width: 100%;
+        width: 80%;
         text-align: center;
+        margin: 0 auto;
         border: none;
         height: auto;
         padding-right: 0;
         padding-bottom: 20px;
         margin-bottom: 20px;
-        border-bottom: 1px $dark-gray solid;
+        border-bottom: 1px $border-white solid;
       }
       .slot {
         width: 100%;

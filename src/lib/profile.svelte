@@ -38,7 +38,7 @@
     .bio {
       & > h4 {
         padding: 10px 0 5px 0;
-        font-weight: 500;
+        font-weight: 600;
       }
       & > p {
         font-size: 13px;

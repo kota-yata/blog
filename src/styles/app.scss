@@ -8,7 +8,7 @@ html, body {
   background: $background;
   color: $primary;
   font-size: 16px;
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-family: 'Inter', 'ヒラギノ角ゴ ProN', 'Noto Sans JP', Arial, Helvetica, sans-serif;
   font-weight: 400;
 }
 
@@ -180,25 +180,28 @@ blockquote {
 }
 
 @media screen and (max-width: 700px) {
-  h1 {
-    font-size: 33px;
+  body,html {
+    font-size: 13px;
+    font-weight: 500;
   }
-  h2 {
+  h1 {
     font-size: 28px;
   }
+  h2 {
+    font-size: 25px;
+  }
   h3 {
-    font-size: 23px;
+    font-size: 22px;
   }
   h4 {
     font-size: 19px;
   }
   h5 {
-    font-size: 17px;
+    font-size: 16px;
   }
-
-  .post {
-    img {
-      width: 100%;
-    }
+  p {
+    font-size: 13px;
+    line-height: 22px;
+    font-weight: 500;
   }
 }

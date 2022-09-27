@@ -110,9 +110,12 @@
   }
 
   @media screen and (max-width: 700px) {
-    .info {
-      &-title {
-        font-size: 35px;
+    .root {
+      width: 95%;
+      .info {
+        &-title {
+          font-size: 28px !important;
+        }
       }
     }
   }
