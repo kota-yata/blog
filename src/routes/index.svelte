@@ -39,7 +39,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-top: 10vh;
+    margin-top: 6vh;
     .profile {
       width: 280px;
       height: 400px;

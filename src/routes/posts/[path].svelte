@@ -33,6 +33,9 @@
 </svelte:head>
 
 <div class="root">
+  <header>
+    <a href="/">Kota's Blog</a>
+  </header>
   <div class="info">
     <h1 class="info-title">{post.meta.title}</h1>
     <span class="info-date">{post.meta.date}</span>
@@ -64,8 +67,19 @@
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
-    padding-top: 10vh;
+    header {
+      width: 100%;
+      padding-top: 30px;
+      text-align: center;
+      a {
+        text-decoration: none;
+        color: $dark-gray;
+        font-weight: 600;
+        font-size: 20px;
+      }
+    }
     .info {
+      padding-top: 10vh;
       padding-bottom: 50px;
       font-weight: 600;
       &-title {
