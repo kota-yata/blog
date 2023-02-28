@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   export let data;
-  let { post } = data;
+  let post = data.post;
   let twitterText: string;
   let pocketText: string;
   let instaPaperText: string;
@@ -17,7 +17,7 @@
   <meta name="description" content={post.meta.description} />
   <meta property="og:url" content="https://blog.kota-yata.com/posts/{post.path}" />
   <meta property="og:title" content={post.meta.title} />
-  <meta property="og:image" content="https://blog.kota-yata.com/media/optimized/{post.meta.ogp}.webp" />
+  <meta property="og:image" content="https://blog.kota-yata.com/ogp/{post.path}.png" />
   <meta property="og:description" content={post.meta.description} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@kota_yata" />
