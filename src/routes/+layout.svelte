@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { fade } from 'svelte/transition';
-
   import '../styles/app.scss';
   import '../styles/fonts.scss';
   import '../styles/a11y-dark.min.css';

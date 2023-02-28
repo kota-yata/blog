@@ -6,12 +6,13 @@
     const text = res.text();
     const parser = new DOMParser();
     const xml = parser.parseFromString(text, 'application/xml');
-    return { props: { xml } };
+    return { props: xml };
   };
 </script>
 
 <script lang="ts">
-  export let xml: Document;
+  export let data;
+  let { xml } = data.props;
 </script>
 
-xml
+{xml}

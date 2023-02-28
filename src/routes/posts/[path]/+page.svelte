@@ -1,16 +1,7 @@
-<script lang="ts" context="module">
-  export const load = async ({ page, fetch }) => {
-    const url = `/posts/${page.params.path}.json`;
-    const res: Response = await fetch(url);
-    if (!res.ok) return;
-    const post: post = await res.json();
-    return { props: { post } };
-  };
-</script>
-
 <script lang="ts">
   import { onMount } from 'svelte';
-  export let post: post;
+  export let data;
+  let { post } = data;
   let twitterText: string;
   let pocketText: string;
   let instaPaperText: string;
@@ -61,7 +52,7 @@
 </div>
 
 <style lang="scss">
-  @import '../../styles/variable.scss';
+  @import '../../../styles/variable.scss';
 
   .root {
     width: 100%;
