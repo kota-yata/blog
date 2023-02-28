@@ -1,3 +1,7 @@
+<script context="module">
+  export const prerender = true;
+</script>
+
 <script lang="ts">
   import '../styles/app.scss';
   import '../styles/fonts.scss';
