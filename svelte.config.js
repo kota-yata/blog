@@ -14,7 +14,6 @@ const config = {
       pages: 'build',
       assets: 'build',
     }),
-    trailingSlash: 'always'
   },
 };
 
