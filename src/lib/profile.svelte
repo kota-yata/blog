@@ -14,8 +14,8 @@
     <h4>八谷 航太</h4>
     <p class="bio-enname">Kota Yatagai</p>
     <p>
-      趣味で暗号技術や分散型システムに触れつつ、学生インターン兼エンジニアとしてCode for Japanに所属しています。
-      詳しい活動などは<a href="https://kota-yata.com">kota-yata.com</a>をご覧ください
+      趣味で暗号技術や分散型システムに触れつつ、ソフトウェアエンジニアとして働いています。
+      詳細は<a href="https://kota-yata.com">kota-yata.com</a>をご覧ください
     </p>
   </div>
   <div class="icons">
