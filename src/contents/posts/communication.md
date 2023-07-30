@@ -73,8 +73,7 @@ def in_field_of_view(lat1, lon1, bearing1, fov1, lat2, lon2):
   distance = haversine((lat1, lon1), (lat2, lon2), unit=Unit.METERS)
   if distance > 7:
     return False
-  bearing_to_2_from_1 = (np.degrees(np.arctan2(np.sin(np.radians(lon2-lon1))*np.cos(np.radians(lat2)), np.cos(np.radians(lat1))*np.sin(np.radians(lat2))-np.sin(np.radians(lat1))*np.cos(np.radians(lat2))*np.cos(np.radians(lon2-lon1)))) + 360) % 360
-  min_bearing1 = (bearing1 - fov1 / 2 + 360) % 360
+  bearing_to_2_from_1 = bearing.calculate_bearing(lat1, lon1, lat2, lon2)  min_bearing1 = (bearing1 - fov1 / 2 + 360) % 360
   max_bearing1 = (bearing1 + fov1 / 2 + 360) % 360
   return min_bearing1 <= bearing_to_2_from_1 <= max_bearing1
 ```
