@@ -1,8 +1,9 @@
 ---
-title: Node.jsのBigQuery APIから主キーを設定してテーブルを作成する
+title: Node.jsのBigQuery APIから主キーを設定してテーブルを作る
 date: 2023-10-31
 category: Programming
 description: Googleのドキュメントが更新される気配がないので書く
+ogp: bq-js-pk
 ---
 
 今年の夏にBigQueryに主キー（Primary Key）が正式サポートされた。とは言っても他のデータベースに見られるようないわゆる主キーとは違ってオプショナルかつ重複やNULLも許可され、結合の最適化が主な目的だと思われる。主キーの詳細や使い方は[Google Cloudのブログ](https://cloud.google.com/blog/ja/products/data-analytics/join-optimizations-with-bigquery-primary-and-foreign-keys/)を参照。
