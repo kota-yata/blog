@@ -1,6 +1,6 @@
 ---
 title: Node.jsのBigQuery APIから主キーを設定してテーブルを作成する
-date: 2023-10-30
+date: 2023-10-31
 category: Programming
 description: Googleのドキュメントが更新される気配がないので書く
 ---
