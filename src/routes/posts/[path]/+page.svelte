@@ -25,7 +25,7 @@
 
 <div class="root">
   <header>
-    <a href="/">If not taller, grow wider.</a>
+    <a href="/">Kota's Blog</a>
   </header>
   <div class="info">
     <h1 class="info-title">{post.meta.title}</h1>
