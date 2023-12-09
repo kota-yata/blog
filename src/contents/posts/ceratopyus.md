@@ -1,5 +1,5 @@
 ---
-title: フンコロガシに俺の名前がついた
+title: 新種のフンコロガシを見つけた
 date: 2023-12-09
 category: Memoir
 description: Ceratopyus Yatagaii
