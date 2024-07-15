@@ -207,4 +207,4 @@ run_quic_server内のserve関数の引数`sock`も今回拡張して追加した
 最初数個のSTUNパケットはICEプロトコルの一部である。そのあとQUICのハンドシェイクが始まり接続が確立しているのが確認できた。
 
 # おわりに
-今回の実装は[Using QUIC to traverse NATs]()というIETF quic WGで議論されているドラフトの手法の一つを参考にしている。このドラフトのメインの手法も鋭意実装中という感じだが、ドラフト自体がまだ検討段階で、Authorにメールしたところまだ実装も存在しないらしいので議論が進むのを追いつつ実装も進めていきたい。
+今回の実装は[Using QUIC to traverse NATs](https://datatracker.ietf.org/doc/draft-seemann-quic-nat-traversal/)というIETF quic WGで議論されているドラフトの手法の一つを参考にしている。このドラフトのメインの手法も鋭意実装中という感じだが、ドラフト自体がまだ検討段階で、Authorにメールしたところまだ実装も存在しないらしいので議論が進むのを追いつつ実装も進めていきたい。

@@ -1,5 +1,6 @@
 import fs from 'fs';
 import { separateData, formatMeta } from '$lib/posts/process';
+import type { Lang } from '$lib/types';
 
 const filterPosts = (posts: postMeta[], num = 0, category = ''): postMeta[] => {
   let postsToReturn = posts;
@@ -17,14 +18,17 @@ const getMeta = (data: string): meta => {
 
 const retrieveMetaFromMarkdown = (fileName: string): { path: string, meta: meta } => {
   const path = fileName.split('.')[0];
+  const isEn = path.endsWith('-en') // temporary solution
+  const base = !isEn ? 'src/contents/posts' : 'src/contents/posts-en';
   return {
     path: path,
-    meta: getMeta(fs.readFileSync(`src/contents/posts/${fileName}`).toString())
+    meta: getMeta(fs.readFileSync(`${base}/${fileName}`).toString())
   };
 };
 
-export const getPosts = (num = 0, category = ''): postMeta[] => {
-  const posts = fs.readdirSync('src/contents/posts').map(retrieveMetaFromMarkdown);
+export const getPosts = (lang: Lang = 'ja', num = 0, category = ''): postMeta[] => {
+  const url = lang === 'ja' ? 'src/contents/posts' : 'src/contents/posts-en';
+  const posts = fs.readdirSync(url).map(retrieveMetaFromMarkdown);
   posts.sort((a: postMeta, b: postMeta): number => {
     const aDate = Date.parse(a.meta.date);
     const bDate = Date.parse(b.meta.date);
@@ -36,8 +40,8 @@ export const getPosts = (num = 0, category = ''): postMeta[] => {
 
 // Getting posts with given filters from client
 // Simply fetching /posts.json since it should be already generated
-export const getPostsClient = async (doFetch: (arg0: string) => Promise<Response>, num = 0, category = ''): Promise<postMeta[]> => {
-  const url = '/index.json';
+export const getPostsClient = async (doFetch: (arg0: string) => Promise<Response>, num = 0, category = '', lang: Lang = 'ja'): Promise<postMeta[]> => {
+  const url = lang === 'ja' ? '/index.json' : '/en/index.json';
   const res = await doFetch(url);
   if (!res.ok) return;
   const posts: postMeta[] = await res.json();

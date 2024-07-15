@@ -1,4 +1,5 @@
 <script lang="ts">
+  export let lang: 'ja' | 'en' = 'ja';
   const icons: { image: string; link: string }[] = [
     { image: '/github.svg', link: 'https://github.com/kota-yata' },
     { image: '/twitter.svg', link: 'https://twitter.com/kota_yata' },
@@ -14,8 +15,12 @@
     <h4>八谷 航太</h4>
     <p class="bio-enname">Kota Yatagai</p>
     <p>
-      趣味で暗号技術や分散型システムに触れつつ、ソフトウェアエンジニアとして働いています。
+      {#if lang === 'ja'}
+      趣味でQUICなどのプロトコルに触れつつ、ソフトウェアエンジニアとして働いています。
       詳細は<a href="https://kota-yata.com">kota-yata.com</a>をご覧ください
+      {:else}
+      Undergrads at Keio University. Software engineer intern at some software companies. For further information, visit <a href="https://kota-yata.com">kota-yata.com</a>
+      {/if}
     </p>
   </div>
   <div class="icons">

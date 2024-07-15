@@ -5,3 +5,5 @@
 export interface Locals {
   userid: string;
 }
+
+export type Lang = 'ja' | 'en';
