@@ -19,7 +19,7 @@ When two peers (A and B) are behind NATs, libp2p's protocol works as follows: B 
 ![libp2p](/media/p2p-quic-02.png)
 
 ## Implementation
-To implement this method, both ICE and QUIC communications must use the same UDP socket, as they need to share the same internal address. However, neither [aioice](https://github.com/aiortc/aioice) nor [aioquic](https://github.com/aiortc/aioquic) originally provided means for users to access or pass the socket. Thus, aioice was extended to retrieve the socket used for the final selected IP/port pair (Candidate), and aioquic was modified to accept an existing socket as an argument in its connect and serve functions. For details of extension, please refer to [my repository]((https://github.com/kota-yata/2023f-wip))
+To implement this method, both ICE and QUIC communications must use the same UDP socket, as they need to share the same internal address. However, neither [aioice](https://github.com/aiortc/aioice) nor [aioquic](https://github.com/aiortc/aioquic) originally provided means for users to access or pass the socket. Thus, aioice was extended to retrieve the socket used for the final selected IP/port pair (Candidate), and aioquic was modified to accept an existing socket as an argument in its connect and serve functions. For details of extension, please refer to [my repository](https://github.com/kota-yata/2023f-wip)
 
 ### Signaling Server Implementation
 The ICE protocol requires a signaling server. Below is a simple implementation based on an aioice example, which was deployed on Heroku.
