@@ -3,7 +3,7 @@ title: Media over QUIC Transportでライブ配信テストをやってみる
 date: 2024-07-24
 category: Network
 description: 低遅延ストリーミングプロトコルMoQTのお試し実装
-ogp: moqt
+ogp: moqt-experiment
 ---
 
 ライブストリーミング市場を含めて映像配信の分野で近年盛り上がってきているMedia over QUIC Transportプロトコル（以下MoQT）について，MoQTクライアントの実装とライブ配信を試せるWebアプリを作ってみた．
