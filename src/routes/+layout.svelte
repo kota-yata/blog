@@ -9,7 +9,7 @@
   <slot />
 </main>
 
-<footer>@ 2021 Kota Yatagai</footer>
+<footer>Kota Yatagai</footer>
 
 <style lang="scss">
   @import '../styles/variable.scss';
