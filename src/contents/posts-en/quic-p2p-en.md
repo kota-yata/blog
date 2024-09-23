@@ -3,7 +3,7 @@ title: Establishing P2P Connection over QUIC
 date: 2024-02-14
 category: Network
 description: Partially demonstrating an IETF draft [Using QUIC to traverse NATs]
-ogp: quic-p2p
+ogp: quic-p2p-en
 ---
 
 When setting up P2P connection within an application, UDP is commonly used. With the ICE protocol and WebRTC, it’s quite easy to establish P2P connections through standard APIs. However, using QUIC instead of UDP offers advantages such as mandatory TLS and connection migration, which would enable, for example, seamless transitions between WiFi and mobile networks during activities like gaming or video conferencing. Despite these benefits, there aren’t yet protocols like ICE or WebRTC for QUIC. **This post demonstrates how to establish P2P communication over QUIC using the ICE protocol over UDP**.
