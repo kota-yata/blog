@@ -38,7 +38,8 @@ Multiplexed streams diagram from [QUIC-EST: A QUIC-Enabled Scheduling and Transm
 Using stream-per-object has benefits beyond network congestion scenarios. Most protocols used in VOD and live streaming transmit video in segments of several seconds. This method inevitably introduces delay as it requires waiting for those few seconds of data, no matter how efficiently the segmentation is done. This is the main reason why "Low-Latency" protocols like LL-HLS and LL-DASH cannot achieve delays of less than one second. On the other hand, using stream-per-object with MoQT eliminates the need to wait for multiple frames, thus eliminating buffering and segmentation delays. In this case, the main factors of delay become transmission delay and encoding/decoding processing. The IETF's moq WG is discussing a container format called Low-overhead Container for video distribution with MoQT, which would allow for encoding/decoding processing with minimal overhead, as the name suggests. Regarding transmission delay, the resolution of HoL Blocking puts it at a significant advantage over other protocols, ultimately enabling distribution with delays well below one second.
 
 ## What I Created
-After extensively discussing the merits of MoQT, I decided to implement it myself to see if it actually performs as imagined.
+Now, it's time to see if it works in the real world as expected.
+
 I implemented a MoQT Publisher/Subscriber and conducted a live streaming test. I used the Low-overhead Container mentioned earlier as the container format, and used Meta's MoQT server [Moxygen](https://github.com/facebookexperimental/moxygen) as the relay server. The relay server was placed on Amazon EC2 in the us-west-2 region, and for the client, I created a dashboard-like web application that can view both Publisher and Subscriber simultaneously, as shown in the image below.
 
 ![moqt-dashboard](/media/moqt-dashboard.png)
