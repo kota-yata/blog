@@ -20,7 +20,7 @@ const xml = (posts: postMeta[]) => `<?xml version="1.0" encoding="UTF-8" ?>
           <link>https://blog.kota-yata.com/posts/${post.path}</link>
           <guid isPermaLink="true">https://blog.kota-yata.com/posts/${post.path}</guid>
           <pubDate><![CDATA[${date.toUTCString()}]]></pubDate>
-          <enclosure url="${`https://blog.kota-yata.com/media/optimized/${post.meta.ogp}.webp` || `https://blog.kota-yata.com/ogp.webp`}" length="0" type="image/webp"/>
+          <enclosure url="${`https://blog.kota-yata.com/ogp/${post.meta.ogp}.png`}" length="0" type="image/png"/>
           <dc:creator>Kota Yatagai</dc:creator>
         </item>
       `;

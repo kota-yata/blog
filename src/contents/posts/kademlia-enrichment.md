@@ -38,7 +38,7 @@ Hard Partitioningでは、Prefixなどではなく、Localityごとにネット�
 ### Fault-free Network
 Fault-free Networkでは、`FIND_NODE`と`FIND_VALUE`両方のオペレーションについて、Partition数3/10/100個でレイテンシーを計測した。
 
-![Fault-free network evaluation](/media/optimized/enriching-kademlia-fault-free-evaluation.webp)
+![Fault-free network evaluation](/media/enriching-kademlia-fault-free-evaluation.webp)
 
 どちらのオペレーションのどのPartition数においても、クエリー数が増えるとオリジナルのKademliaアルゴリズムのレイテンシーが他より大きくなっている。さらにPartition数が増えれば増えるほどSoft PartitioningもHard Partitioningもレイテンシーが減っていることが分かる。Hard Partitoningは一つのPartitionのノード数が少ない（Partition数が多い）ほどそのネットワーク内のルーティングは高速になるためSoft Partitioningよりも高速になるが、Partition数が少ないとIndexer Serviceに集まるクエリーの数が多いためボトルネックになる。結果としてSoft PartitioningとHard Partitioningはさほど変わらないレイテンシーに落ち着いている。
 
@@ -47,7 +47,7 @@ Fault-free Networkでは、`FIND_NODE`と`FIND_VALUE`両方のオペレーショ
 ### Faulty Network
 Faulty Networkにおいては、`FIND_NODE`についてPartition数10/100個でオペレーションの成功率を計測した。120秒間Fault-freeな状態で動かしたのちに意図的に30%の通信を失敗させている。
 
-![Faulty network evaluation](/media/optimized/enriching-kademlia-faulty-evaluation.webp)
+![Faulty network evaluation](/media/enriching-kademlia-faulty-evaluation.webp)
 
 この状況下だとSoft Partitioningが最も効率が悪いことが分かる。さらに特徴的なのは、Partition数100個の際、Hard Partitioningのオペレーション成功率が以上に高いことである。これは分割されたネットワークの数が多く、あるノードにアクセスする際に回り道がたくさんあるためである。ノードだけでなく、その上の階層のDHTでまたネットワークが形成されていると考えると分かりやすいかもしれない。
 
