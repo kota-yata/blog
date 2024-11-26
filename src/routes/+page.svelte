@@ -3,6 +3,9 @@
   import PostCard from '$lib/posts/postCard.svelte';
   export let data;
   let { posts } = data.props;
+  let memoir = posts.filter((post) => post.meta.category === 'Memoir');
+  let computer = posts.filter((post) => post.meta.category !== 'Memoir');
+  let genre: 'memoir' | 'computer' = 'computer';
 </script>
 
 <svelte:head>
@@ -18,10 +21,30 @@
 
 <div class="container">
   <div class="profile"><Profile /></div>
+  <div class="menu">
+    <button
+      class:active={genre === 'computer'}
+      on:click={() => {
+        genre = 'computer';
+      }}>Computer</button
+    >
+    <button
+      class:active={genre === 'memoir'}
+      on:click={() => {
+        genre = 'memoir';
+      }}>Memoir</button
+    >
+  </div>
   <div class="slot">
-    {#each posts as post}
-      <div class="post-container"><PostCard meta={post} /></div>
-    {/each}
+    {#if genre === 'computer'}
+      {#each computer as post}
+        <div class="post-container"><PostCard meta={post} /></div>
+      {/each}
+    {:else}
+      {#each memoir as post}
+        <div class="post-container"><PostCard meta={post} /></div>
+      {/each}
+    {/if}
   </div>
 </div>
 
@@ -38,6 +61,20 @@
       height: 400px;
       padding-right: 30px;
       border-right: 1px $border-white solid;
+    }
+    .menu {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      & > button {
+        font-weight: 700;
+        color: $dark-gray;
+        margin: 0 10px;
+        border-bottom: 1px $border-white solid;
+      }
+      .active {
+        color: $primary;
+      }
     }
     .slot {
       width: calc(100% - 280px - 100px);
