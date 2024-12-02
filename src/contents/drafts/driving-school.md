@@ -1,7 +1,7 @@
 ---
 title: 教習所のはなし
 date: 2022-12-31
-category: memoir
+category: Memoir
 description: 良いお年を！
 ogp: driving-school
 ---

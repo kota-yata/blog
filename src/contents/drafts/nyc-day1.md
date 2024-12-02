@@ -1,7 +1,7 @@
 ---
 title: NYCを1人で歩く - 初日
 date: 2022-06-16
-category: memoir
+category: Memoir
 description: 到着してからノープラン旅のヤバさに気づく
 ogp: ogp
 ---

@@ -1,7 +1,7 @@
 ---
 title: 新種のフンコロガシを見つけた
 date: 2023-12-09
-category: memoir
+category: Memoir
 description: Ceratopyus Yatagaii
 ogp: ceratopyus
 ---

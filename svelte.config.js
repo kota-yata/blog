@@ -14,14 +14,6 @@ const config = {
       pages: 'build',
       assets: 'build',
     }),
-    prerender: {
-      entries: [
-        '/posts/ceratopyus',
-        '/posts/memoir-20231108',
-        '/posts/memoir-20231120',
-        '/posts/sep2022'
-      ],
-    }
   },
 };
 

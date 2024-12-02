@@ -1,7 +1,7 @@
 ---
 title: UTF-8対応のBase64を自作する
 date: 2021-08-21
-category: computer
+category: Algorithm
 description: バイナリーを型付配列で扱う美しい実装
 ogp: base64
 ---

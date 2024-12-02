@@ -1,7 +1,7 @@
 ---
 title: コミュニケーションは測れるのか
 date: 2023-07-28
-category: computer
+category: Data Science
 description: 「コミュニケーション」の定量的計測を試みる
 ---
 

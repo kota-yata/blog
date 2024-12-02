@@ -1,7 +1,7 @@
 ---
 title: ブラウザからローカルフォントを取得する
 date: 2020-11-25
-category: computer
+category: Programming
 description: Font Access APIでローカルにアクセス
 ogp: faapi
 ---

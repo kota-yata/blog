@@ -1,7 +1,7 @@
 ---
 title: 宇宙とインターネット、そしてIP
 date: 2024-11-02
-category: computer
+category: Network
 description: 宇宙通信の現在とDTN, BPについて
 ogp: space-ip
 ---

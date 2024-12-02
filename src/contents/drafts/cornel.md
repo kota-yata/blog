@@ -123,7 +123,7 @@ IoTは中央管理実体を必要としない、モノを識別する強力な�
 - Humaniq. (2017). [Humaniq.com](http://humaniq.com/). Retrieved from [https://humaniq.com](https://humaniq.com/)
 - ID2020. (2017). An Alliance Committed to Improving Lives Through Digital Identity. Retrieved from [http://id2020.org/](http://id2020.org/)
 - Jähnichen, S., Weinhardt, C., Müller-Quade, J., Huber, M., Rödder, N., Karlin, D., . . . Shaar, P. (2017). Sicheres Identitätsmanagement im Internet: Eine Analyse des ISÆN-Konzepts (Individual perSonal data Auditable addrEss) durch die Smart-Data-Begleitforschung im Auftrag des Bundesministeriums für Wirtschaft und Energie. http://www.digitale- [technologien.de/DT/Redaktion/DE/Downloads/Publikation/smartdata_studie_isaen.html](http://technologien.de/DT/Redaktion/DE/Downloads/Publikation/smartdata_studie_isaen.html).
-- Jacobovitz, O. (2016). Blockchain for Identity Management. The Lynne and William Frankel Center for computer Science Department of computer Science. Beer Sheva, Israel: Ben-Gurion University.
+- Jacobovitz, O. (2016). Blockchain for Identity Management. The Lynne and William Frankel Center for Computer Science Department of Computer Science. Beer Sheva, Israel: Ben-Gurion University.
 - Keesing Technologies. (2017). AuthentiScan; Professional Authentication. Straight forward solution. Retrieved October 31, 2017, from [https://www.keesingtechnologies.com/automated-id-checking/](https://www.keesingtechnologies.com/automated-id-checking/)
 - Meitinger, T. H. (2017). Smart Contracts. Informatik-Spektrum(40), 371-375.
 Nakamoto, S. (2008). Bitcoin: A Peer-to-Peer Electronic Cash System. Retrieved 2017, from [http://bitcoin.org/bitcoin.pdf](http://bitcoin.org/bitcoin.pdf)
