@@ -1,7 +1,7 @@
 ---
 title: ワンタイムパッドはなぜ安心安全なのか
 date: 2021-01-03
-category: Cryptography
+category: computer
 description: OTPの安全性を証明する
 ogp: otp
 ---

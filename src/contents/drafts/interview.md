@@ -1,7 +1,7 @@
 ---
 title: はじめてカジュアル面接なるものを受けた
 date: 2021-03-26
-category: Memoir
+category: memoir
 description: 普通に楽しかった
 ogp: interview
 ---

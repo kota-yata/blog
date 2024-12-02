@@ -1,7 +1,7 @@
 ---
 title: 暗号モードまとめ
 date: 2021-05-15
-category: Cryptography
+category: computer
 description: 暗号を基礎から勉強しようの会
 ogp: ctsenc
 ---

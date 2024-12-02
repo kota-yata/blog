@@ -1,7 +1,7 @@
 ---
 title: TCP Simultaneous Openを試す
 date: 2022-11-03
-category: Network
+category: computer
 description: 同時にSYNパケットを送り合う、TCPホールパンチングの手法の一つ
 ogp: tcp-so
 ---

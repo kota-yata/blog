@@ -1,7 +1,7 @@
 ---
 title: 留学中の日記を供養する
 date: 2022-12-3
-category: Memoir
+category: memoir
 description: 一記事に収まるほどしか続かなかったのが情けない...
 ogp: mem-service
 ---

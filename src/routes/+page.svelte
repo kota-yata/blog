@@ -3,9 +3,10 @@
   import PostCard from '$lib/posts/postCard.svelte';
   export let data;
   let { posts } = data.props;
-  let memoir = posts.filter((post) => post.meta.category === 'Memoir');
-  let computer = posts.filter((post) => post.meta.category !== 'Memoir');
-  let genre: 'memoir' | 'computer' = 'computer';
+  let memoir = posts.filter((post) => post.meta.category === 'memoir');
+  let computer = posts.filter((post) => post.meta.category === 'computer');
+  let genre: 'computer' | 'memoir' = 'computer';
+  $: currentPosts = genre === 'computer' ? computer : memoir;
 </script>
 
 <svelte:head>
@@ -36,15 +37,11 @@
     >
   </div>
   <div class="slot">
-    {#if genre === 'computer'}
-      {#each computer as post}
-        <div class="post-container"><PostCard meta={post} /></div>
+      {#each currentPosts as post}
+        <div class="post-container">
+          <PostCard meta={post} />
+        </div>
       {/each}
-    {:else}
-      {#each memoir as post}
-        <div class="post-container"><PostCard meta={post} /></div>
-      {/each}
-    {/if}
   </div>
 </div>
 

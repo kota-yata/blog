@@ -1,7 +1,7 @@
 ---
 title: QUICでP2P通信を張る
 date: 2024-02-14
-category: Network
+category: computer
 description: Using QUIC to traverse NATsの実装を途中まで
 ogp: quic-p2p
 ---

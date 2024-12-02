@@ -1,7 +1,7 @@
 ---
 title: NYCを1人で歩く - 2日目
 date: 2022-06-17
-category: Memoir
+category: memoir
 description: 流石に若干のプランは立てた
 ogp: ogp
 ---

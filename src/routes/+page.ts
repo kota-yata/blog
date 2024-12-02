@@ -4,3 +4,5 @@ export const load = async ({ fetch }): Promise<postsProps> => {
   const posts = await getPostsClient(fetch);
   return { props: { posts } };
 };
+
+export const prerender = true;

@@ -17,7 +17,8 @@
     <p>
       {#if lang === 'ja'}
       趣味でQUICなどのプロトコルに触れつつ、ソフトウェアエンジニアとして働いています。
-      詳細は<a href="https://kota-yata.com">kota-yata.com</a>をご覧ください
+      詳細は<a href="https://kota-yata.com">kota-yata.com</a>をご覧ください。
+      英語版は<a href="/en">kota-yata.com/en</a>へ。
       {:else}
       Undergrads at Keio University. Software engineer intern at some software companies. For further information, visit <a href="https://kota-yata.com">kota-yata.com</a>
       {/if}
@@ -28,6 +29,7 @@
       <a href={icon.link} rel="external"><img alt="icon" src={icon.image} width="20px" height="20px" /></a>
     {/each}
   </div>
+  <a href="/rss" class="display:none">dummy</a>
 </div>
 
 <style lang="scss">
