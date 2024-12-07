@@ -23,7 +23,7 @@ PMTUDの基本的な流れは以下の通りである
 ![pmtud](/media/pmtud.png)
 出典: https://www.infraexpert.com/info/5.2adsl.htm
 
-PMTUDはICMPを使うことを前提としているが、今どきわざわざICMPを使う必要はなく、データグラム型プロトコルでは実際はそれぞれのプロトコルメッセージを用いてPMTUDを行う[Datagram Packetization Layer Path MTU Discovery（DPLPMTUD）](https://www.rfc-editor.org/rfc/rfc8899)が実装されているケースが多い。go-quicもそのうちの一つである。
+PMTUDはICMPを使うことを前提としているが、データグラム型プロトコルでは実際はそれぞれのプロトコルメッセージを用いてPMTUDを行う[Datagram Packetization Layer Path MTU Discovery（DPLPMTUD）](https://www.rfc-editor.org/rfc/rfc8899)が実装されているケースが多い。go-quicもそのうちの一つである。
 
 ## quic-goにおけるDPLPMTUDの実装と攻撃
 go-quicではLinuxマシン上のホストでDPLPMTUDを行う際に、`IP_PMTUDISC_DO`ソケットオプションをセットしていた。このオプションがセットされているとき、ストリームソケットにおいてはPMTUDが常に実行され、データグラムソケットにおいてはDFフラグが常にセットされる。カーネルは`IP_PMTUDISC_DO`がセットされたソケットに対してのICMPメッセージを信頼し、Fragmentation Neededメッセージを受信したら逐次Path MTUを更新していく。また送信元をチェックしないため、そのソケットが通信を行っている相手からのメッセージでなくても受け取ってしまう。
