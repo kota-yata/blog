@@ -1,7 +1,7 @@
 ---
 title: quic-goにおけるPMTUDを利用した脆弱性 (CVE-2024-53259)
 date: 2024-12-04
-category: Network
+category: Computer
 description: Path MTU Discoveryの実装を利用した攻撃手法と対策
 ogp: quic-go-cve
 ---

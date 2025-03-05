@@ -1,7 +1,7 @@
 ---
 title: Enriching Kademlia by Partitioningを読んだ
 date: 2022-12-26
-category: Network
+category: Computer
 description: 論理アドレスと実際の距離の整合
 ogp: enriching-kademlia-fault-free-evaluation
 ---

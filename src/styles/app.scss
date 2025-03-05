@@ -77,6 +77,14 @@ input,
 button {
   font-size: inherit;
   font-family: inherit;
+  border: none;
+  &:hover {
+    opacity: 0.6;
+    transition: 0.2s;
+  }
+}
+button {
+  cursor: pointer;
 }
 select {
   background: transparent;

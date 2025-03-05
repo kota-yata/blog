@@ -1,7 +1,7 @@
 ---
 title: WebRTC上の自前プロトコルでファイル共有アプリを作ろう
 date: 2023-09-29
-category: Algorithm
+category: Computer
 description: バイナリーを文字列で扱うJavaScriptな実装
 ogp: huffman
 ---

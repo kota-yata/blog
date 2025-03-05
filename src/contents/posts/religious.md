@@ -1,7 +1,7 @@
 ---
 title: 宗教は信じるものなのか
 date: 2021-08-10
-category: Thoughts
+category: Memoir
 description: 信教が哲学の芽を摘み取ってるんじゃないかと思った話
 ogp: golf
 ---

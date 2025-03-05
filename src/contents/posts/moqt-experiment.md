@@ -1,7 +1,7 @@
 ---
 title: Media over QUIC Transportでライブ配信テストをやってみる
 date: 2024-07-24
-category: Network
+category: Computer
 description: 低遅延ストリーミングプロトコルMoQTのお試し実装
 ogp: moqt-experiment
 ---

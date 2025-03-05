@@ -1,7 +1,7 @@
 ---
 title: TCP Simultaneous Open
 date: 2022-11-03
-category: Network
+category: Computer
 description: Trying some hacky TCP things
 ogp: tcp-so-en
 ---

@@ -3,6 +3,8 @@
   import PostCard from '$lib/posts/postCard.svelte';
   export let data;
   let { posts } = data.props;
+
+  let selectedTab = 'Computer';
 </script>
 
 <svelte:head>
@@ -19,8 +21,14 @@
 <div class="container">
   <div class="profile"><Profile /></div>
   <div class="slot">
+    <div class="tab">
+      <button on:click={() => { selectedTab = 'Computer'}}>Computer</button>
+      <button on:click={() => { selectedTab = 'Memoir' }}>Memoir</button>
+    </div>
     {#each posts as post}
+      {#if post.meta.category === selectedTab}
       <div class="post-container"><PostCard meta={post} /></div>
+      {/if}
     {/each}
   </div>
 </div>
@@ -41,6 +49,16 @@
     }
     .slot {
       width: calc(100% - 280px - 100px);
+      .tab {
+        width: 100%;
+        margin-bottom: 30px;
+        text-align: center;
+        button {
+          font-weight: 600;
+          color: $dark-gray;
+          text-decoration: underline;
+        }
+      }
       .post-container {
         margin-bottom: 40px;
       }

@@ -1,7 +1,7 @@
 ---
 title: Performing Live Streaming Demo over Media over QUIC Transport
 date: 2024-07-24
-category: Network
+category: Computer
 description: Implementation and simple testings
 ogp: moqt-experiment-en
 ---

@@ -1,7 +1,7 @@
 ---
 title: TypeScriptでべき剰余
 date: 2022-07-13
-category: Algorithm
+category: Computer
 description: BigIntを利用する工業レベルの整数向けべき剰余
 ogp: power-mod
 ---

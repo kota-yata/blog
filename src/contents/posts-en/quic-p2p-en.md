@@ -1,7 +1,7 @@
 ---
 title: Establishing P2P Connection over QUIC
 date: 2024-02-14
-category: Network
+category: Computer
 description: Partially demonstrating an IETF draft [Using QUIC to traverse NATs]
 ogp: quic-p2p-en
 ---

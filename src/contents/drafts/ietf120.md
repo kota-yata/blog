@@ -1,7 +1,7 @@
 ---
 title: IETF120に行ってきた
 date: 2024-07-27
-category: Network
+category: Computer
 description: IETF120とバンクーバーの振り返り
 ogp: ietf120
 ---
