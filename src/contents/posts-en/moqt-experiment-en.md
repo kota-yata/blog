@@ -56,7 +56,7 @@ Here are some simple latency measurement. I classified the latency into three ty
 
 For the measurement, I ran a live stream for about 10 seconds and used the `performance.now()` function to measure the time for all frames from the moment WebCodecs starts encoding to the moment the MoQT package is completed and sent out via WebTransport (Latency 1), from the moment the Publisher sends out the packet to the moment the Subscriber receives the packet (Latency 2), and from the moment the Subscriber receives the packet to the moment decoding is completed in WebCodecs and the frame is rendered (Latency 3).
 
-The video quality during measurement was Full HD (1920px*1080px) at 60FPS, using H.264 as the video codec with keyframes every 60 frames, and Opus as the audio codec. Being able to adjust all these parameters myself is another pleasing point of MoQT (for example, this isn't possible with WebRTC).
+The video quality during measurement was Full HD (1920px*1080px) at 60FPS, using H.264 as the video codec with keyframes every 60 frames, and Opus as the audio codec. Being able to adjust all these parameters myself is another pleasing point of MoQT.
 
 ### Measurement Results
 Latency 1 averaged 12.2ms, Latency 2 was 117.3ms, and Latency 3 was 10.3ms. In this case, I only performed pure encoding/decoding and packaging/depackaging processes, without implementing things like jitter adjustment buffers, so Latencies 1 and 3 are quite fast. The result of the total delay being under 150ms is quite revolutionary, and my impression after seeing these results is that if QUIC becomes widespread, the dream of low latency could become much more achievable.
