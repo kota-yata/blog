@@ -3,6 +3,7 @@
   import '../styles/fonts.scss';
   import '../styles/a11y-dark.min.css';
   import '../styles/katex.min.css';
+  import { injectAnalytics } from '@vercel/analytics/sveltekit'
 </script>
 
 <main>
