@@ -1,10 +1,17 @@
 <script lang="ts">
   import Profile from '$lib/profile.svelte';
   import PostCard from '$lib/posts/postCard.svelte';
-  import LanguageToggle from '$lib/LanguageToggle.svelte';
+  import TopControls from '$lib/TopControls.svelte';
+  import Search from '$lib/Search.svelte';
   import { t } from '$lib/i18n';
   export let data;
   let { posts, lang } = data;
+  
+  let showSearch = false;
+  
+  function toggleSearch() {
+    showSearch = !showSearch;
+  }
 </script>
 
 <svelte:head>
@@ -18,14 +25,22 @@
   <meta name="twitter:site" content="@kota_yata" />
 </svelte:head>
 
-<LanguageToggle {lang} />
+<TopControls {lang} {showSearch} onSearchToggle={toggleSearch} />
 
 <div class="container">
   <div class="profile"><Profile {lang} /></div>
   <div class="slot">
-    {#each posts as post}
-      <div class="post-container"><PostCard meta={post} {lang} /></div>
-    {/each}
+    <div class="post-info">
+      {posts.length} posts available
+    </div>
+    
+    {#if showSearch}
+      <Search {posts} {lang} />
+    {:else}
+      {#each posts as post}
+        <div class="post-container"><PostCard meta={post} {lang} /></div>
+      {/each}
+    {/if}
   </div>
 </div>
 
@@ -45,6 +60,13 @@
     }
     .slot {
       width: calc(100% - 280px - 100px);
+      .post-info {
+        text-align: center;
+        font-size: 14px;
+        color: $dark-gray;
+        font-weight: 600;
+        margin-bottom: 30px;
+      }
       .post-container {
         margin-bottom: 40px;
       }

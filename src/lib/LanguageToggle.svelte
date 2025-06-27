@@ -16,9 +16,6 @@
   @import '../styles/variable.scss';
   
   .language-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
     padding: 8px 16px;
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid $border-white;
@@ -28,8 +25,8 @@
     font-weight: 600;
     font-size: 14px;
     backdrop-filter: blur(10px);
-    z-index: 1000;
     transition: all 0.2s ease;
+    white-space: nowrap;
     
     &:hover {
       background: rgba(255, 255, 255, 1);

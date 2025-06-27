@@ -1,12 +1,21 @@
 <script lang="ts">
   import Profile from '$lib/profile.svelte';
   import PostCard from '$lib/posts/postCard.svelte';
-  import LanguageToggle from '$lib/LanguageToggle.svelte';
+  import TopControls from '$lib/TopControls.svelte';
+  import Search from '$lib/Search.svelte';
   import { t } from '$lib/i18n';
   export let data;
   let { posts, lang } = data;
 
   let selectedTab = 'Computer';
+  let showSearch = false;
+  
+  // Filter posts based on selected tab
+  $: filteredPosts = posts.filter(post => post.meta.category === selectedTab);
+  
+  function toggleSearch() {
+    showSearch = !showSearch;
+  }
 </script>
 
 <svelte:head>
@@ -20,20 +29,33 @@
   <meta name="twitter:site" content="@kota_yata" />
 </svelte:head>
 
-<LanguageToggle {lang} />
+<TopControls {lang} {showSearch} onSearchToggle={toggleSearch} />
 
 <div class="container">
   <div class="profile"><Profile {lang} /></div>
   <div class="slot">
     <div class="tab">
-      <button on:click={() => { selectedTab = 'Computer'}}>Computer</button>
-      <button on:click={() => { selectedTab = 'Memoir' }}>Memoir</button>
+      <button 
+        class:active={selectedTab === 'Computer'} 
+        on:click={() => { selectedTab = 'Computer'; showSearch = false; }}
+      >
+        Computer
+      </button>
+      <button 
+        class:active={selectedTab === 'Memoir'} 
+        on:click={() => { selectedTab = 'Memoir'; showSearch = false; }}
+      >
+        Memoir
+      </button>
     </div>
-    {#each posts as post}
-      {#if post.meta.category === selectedTab}
-      <div class="post-container"><PostCard meta={post} {lang} /></div>
-      {/if}
-    {/each}
+    
+    {#if showSearch}
+      <Search {posts} {lang} />
+    {:else}
+      {#each filteredPosts as post}
+        <div class="post-container"><PostCard meta={post} {lang} /></div>
+      {/each}
+    {/if}
   </div>
 </div>
 
@@ -54,13 +76,30 @@
     .slot {
       width: calc(100% - 280px - 100px);
       .tab {
-        width: 100%;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
         margin-bottom: 30px;
-        text-align: center;
         button {
           font-weight: 600;
           color: $dark-gray;
-          text-decoration: underline;
+          text-decoration: none;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 8px 16px;
+          border-radius: 20px;
+          transition: all 0.2s ease;
+          
+          &:hover {
+            background: rgba(255, 154, 77, 0.1);
+            color: $orange;
+          }
+          
+          &.active {
+            background: $orange;
+            color: white;
+          }
         }
       }
       .post-container {
@@ -86,6 +125,9 @@
       .slot {
         width: 100%;
         padding: 0;
+        .tab {
+          justify-content: center;
+        }
       }
     }
   }

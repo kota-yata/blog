@@ -7,6 +7,8 @@ export const translations = {
     allPostsTitle: 'All Posts - KOTA YATAGAI',
     allPostsDescription: 'All posts by Kota Yatagai',
     languageToggle: 'English',
+    searchPlaceholder: '記事を検索...',
+    searchNoResults: '検索結果が見つかりませんでした',
     categories: {
       computer: 'Computer',
       memoir: 'Memoir'
@@ -18,6 +20,8 @@ export const translations = {
     allPostsTitle: 'All Posts - KOTA YATAGAI',
     allPostsDescription: 'All posts by Kota Yatagai',
     languageToggle: '日本語',
+    searchPlaceholder: 'Search posts...',
+    searchNoResults: 'No search results found',
     categories: {
       computer: 'Computer',
       memoir: 'Memoir'

@@ -44,6 +44,7 @@
     "@lukeed/uuid": "^2.0.0",
     "@vercel/analytics": "^1.5.0",
     "cookie": "^0.4.1",
+    "fuse.js": "^7.1.0",
     "highlight.js": "^11.3.1",
     "katex": "^0.15.1",
     "markdown-it": "^12.2.0",
