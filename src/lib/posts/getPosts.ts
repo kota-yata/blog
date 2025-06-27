@@ -43,7 +43,7 @@ export const getPosts = (lang: Lang = 'ja', num = 0, category = ''): postMeta[] 
 export const getPostsClient = async (doFetch: (arg0: string) => Promise<Response>, num = 0, category = '', lang: Lang = 'ja'): Promise<postMeta[]> => {
   const url = lang === 'ja' ? '/index.json' : '/en/index.json';
   const res = await doFetch(url);
-  if (!res.ok) return;
+  if (!res.ok) return [];
   const posts: postMeta[] = await res.json();
   if (num > posts.length) throw Error('arg2 must be smaller than the length of posts');
   const filtered = filterPosts(posts, num, category);

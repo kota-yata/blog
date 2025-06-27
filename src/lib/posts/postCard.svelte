@@ -1,9 +1,10 @@
 <script lang="ts">
   export let meta: postMeta = {} as postMeta;
   export let displayEyecatch = false;
-  export let lang = "ja";
+  export let lang: 'ja' | 'en' = "ja";
+  import { getPostUrl } from '$lib/i18n';
 
-  const postPath = lang === "ja" ? "/posts" : "/en/posts";
+  $: postPath = lang === 'ja' ? '/posts' : '/en/posts';
 </script>
 
 <div class="container">

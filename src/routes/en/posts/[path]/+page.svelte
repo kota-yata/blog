@@ -1,7 +1,13 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { t, getHomeUrl, getOgUrl } from '$lib/i18n';
   export let data;
-  let post = data.post;
+  let { post, lang } = data;
+  
+  // Guard against missing post data
+  if (!post) {
+    throw new Error('Post not found');
+  }
   let twitterText: string;
   let pocketText: string;
   let instaPaperText: string;
@@ -15,7 +21,7 @@
 <svelte:head>
   <title>{post.meta.title}</title>
   <meta name="description" content={post.meta.description} />
-  <meta property="og:url" content="https://blog.kota-yata.com/posts-en/{post.path}" />
+  <meta property="og:url" content={getOgUrl(lang, post.path)} />
   <meta property="og:title" content={post.meta.title} />
   <meta property="og:image" content="https://blog.kota-yata.com/ogp/{post.path}.png" />
   <meta property="og:description" content={post.meta.description} />
@@ -25,7 +31,7 @@
 
 <div class="root">
   <header>
-    <a href="/en">Kota's Blog</a>
+    <a href={getHomeUrl(lang)}>{t(lang, 'blogTitle')}</a>
   </header>
   <div class="info">
     <h1 class="info-title">{post.meta.title}</h1>
@@ -47,7 +53,7 @@
     >
   </div>
   <div class="back">
-    <a href="/en">Back to All Posts</a>
+    <a href={getHomeUrl(lang)}>{t(lang, 'allPosts')}</a>
   </div>
 </div>
 

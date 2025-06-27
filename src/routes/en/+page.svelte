@@ -1,26 +1,30 @@
 <script lang="ts">
   import Profile from '$lib/profile.svelte';
   import PostCard from '$lib/posts/postCard.svelte';
+  import LanguageToggle from '$lib/LanguageToggle.svelte';
+  import { t } from '$lib/i18n';
   export let data;
-  let { posts } = data.props;
+  let { posts, lang } = data;
 </script>
 
 <svelte:head>
-  <title>All Posts - KOTA YATAGAI</title>
-  <meta name="description" content="All posts by Kota Yatagai" />
+  <title>{t(lang, 'allPostsTitle')}</title>
+  <meta name="description" content={t(lang, 'allPostsDescription')} />
   <meta property="og:url" content="https://blog.kota-yata.com/en/posts" />
-  <meta property="og:title" content="All Posts - KOTA YATAGAI" />
+  <meta property="og:title" content={t(lang, 'allPostsTitle')} />
   <meta property="og:image" content="https://blog.kota-yata.com/ogp.webp" />
-  <meta property="og:description" content="All posts by Kota Yatagai" />
+  <meta property="og:description" content={t(lang, 'allPostsDescription')} />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@kota_yata" />
 </svelte:head>
 
+<LanguageToggle {lang} />
+
 <div class="container">
-  <div class="profile"><Profile lang='en' /></div>
+  <div class="profile"><Profile {lang} /></div>
   <div class="slot">
     {#each posts as post}
-      <div class="post-container"><PostCard meta={post} lang='en' /></div>
+      <div class="post-container"><PostCard meta={post} {lang} /></div>
     {/each}
   </div>
 </div>
