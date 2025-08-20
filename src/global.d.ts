@@ -26,3 +26,15 @@ interface pages {
 }
 
 interface localizedProps { JP: string, EN: string };
+
+// Add session data to locals
+declare global {
+  namespace App {
+    interface Locals {
+      session: {
+        isAuthenticated: boolean;
+        username?: string;
+      };
+    }
+  }
+}
