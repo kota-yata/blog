@@ -6,37 +6,37 @@ description: SeleniumとLambdaを使った自動化の記事
 ogp: gfa
 ---
 
-みなさんこんにちは。夏ですね。
-僕もついに部活動が再開し、ワクワクドキドキな訳ですが、一昨日の夜顧問からこんな連絡がきました。
+みなさんこんにちは．夏ですね．
+僕もついに部活動が再開し，ワクワクドキドキな訳ですが，一昨日の夜顧問からこんな連絡がきました．
 
 ```
-- 毎朝5時20分までに検温を行い、結果をGoogleFormから報告してください
+- 毎朝5時20分までに検温を行い，結果をGoogleFormから報告してください
 - 報告がなかった部員は朝練の参加を認めません
 ```
 
-そもそも朝練が6時半から始まる時点でイッているので5時20分に連絡しろと言われてもさほど驚かなかったのですが、ここで一つ問題が発生しました。
+そもそも朝練が6時半から始まる時点でイッているので5時20分に連絡しろと言われてもさほど驚かなかったのですが，ここで一つ問題が発生しました．
 
-というのも僕は普段朝5時に起き、そのままパンをかじりながら自転車で駅に向かうので、検温をする時間がないのです。もう少し早起きすれば済む話なのですが、4時起きは流石にきついし体がもたないのでやりたくない。かといって5時に起きて検温なんかしていたら朝練そのものに遅れてしまう。
+というのも僕は普段朝5時に起き，そのままパンをかじりながら自転車で駅に向かうので，検温をする時間がないのです．もう少し早起きすれば済む話なのですが，4時起きは流石にきついし体がもたないのでやりたくない．かといって5時に起きて検温なんかしていたら朝練そのものに遅れてしまう．
 
-というわけで、朝5時くらいに、心配されない程度の体温をよしなに指定のFormに入力して送信してくれるプログラムを作りたいと思います。
+というわけで，朝5時くらいに，心配されない程度の体温をよしなに指定のFormに入力して送信してくれるプログラムを作りたいと思います．
 
 ## Seleniumでフォームを送信する
-本物のフォームを使ってやると僕の身元がバレてしまうので、今回は[テスト用に僕が作成した本物と同じ内容のフォーム](https://docs.google.com/forms/d/e/1FAIpQLScGgZ8dsBkcSVutvW3JgDLqy3pIEKk12ucjiA8mNQrKopILog/viewform)で実装したいと思います。
+本物のフォームを使ってやると僕の身元がバレてしまうので，今回は[テスト用に僕が作成した本物と同じ内容のフォーム](https://docs.google.com/forms/d/e/1FAIpQLScGgZ8dsBkcSVutvW3JgDLqy3pIEKk12ucjiA8mNQrKopILog/viewform)で実装したいと思います．
 ### 初期値入力つきURLを用意する
-Google Formは、パラメータをつけることで各質問の値を入力した状態でURLを開くことができます。
+Google Formは，パラメータをつけることで各質問の値を入力した状態でURLを開くことができます．
 普通にフォームを開く際のURLは
 
 https://docs.google.com/forms/d/e/1FAIpQLScGgZ8dsBkcSVutvW3JgDLqy3pIEKk12ucjiA8mNQrKopILog/viewform?usp=sf_link
 
-こんな感じでviewformの後に「usp=sf_link」というパラメータがついています。このパラメータは事前入力のない、ピュアな回答フォームであることを示しているので、まずここを「usp=pp_url」に変えて、事前入力があることを知らせてあげます。
+こんな感じでviewformの後に「usp=sf_link」というパラメータがついています．このパラメータは事前入力のない，ピュアな回答フォームであることを示しているので，まずここを「usp=pp_url」に変えて，事前入力があることを知らせてあげます．
 &nbsp;  
 &nbsp;  
-そしたら次に各質問の回答をパラメータに入力していきます。フォームの各質問を識別する番号があるので、Chromeの検証画面で質問のdivを探し、2階層目で以下のような番号を探します。
+そしたら次に各質問の回答をパラメータに入力していきます．フォームの各質問を識別する番号があるので，Chromeの検証画面で質問のdivを探し，2階層目で以下のような番号を探します．
 ![スクリーンショット 2020-08-07 16.56.07.jpg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/502570/d48564de-3d9c-07e0-7aec-755e1b4444d5.jpeg)
-番号を見つけたら```entry.番号=回答内容```の形でパラメータを加えます。今回は名前と体温をテキストで入力するので以下のようなURLになります。
+番号を見つけたら```entry.番号=回答内容```の形でパラメータを加えます．今回は名前と体温をテキストで入力するので以下のようなURLになります．
 
 https://docs.google.com/forms/d/e/1FAIpQLScGgZ8dsBkcSVutvW3JgDLqy3pIEKk12ucjiA8mNQrKopILog/viewform?usp=pp_url&entry.1534939278=荒川智則&entry.511939456=36.5
-しかしこのままだと毎日36.5度を報告することになり、流石に怪しまれるので、乱数で良い感じに値を振ります。
+しかしこのままだと毎日36.5度を報告することになり，流石に怪しまれるので，乱数で良い感じに値を振ります．
 
 ```python
 # 36.1~36.7の間でランダムに値を生成して文字列変換
@@ -46,7 +46,7 @@ url = 'https://docs.google.com/forms/d/e/1FAIpQLScGgZ8dsBkcSVutvW3JgDLqy3pIEKk12
 ```
 
 ### Seleniumで自動提出
-URLが完成したら、あとはSeleniumでURLを開き、ポチッと提出ボタンを押してもらうだけです。
+URLが完成したら，あとはSeleniumでURLを開き，ポチッと提出ボタンを押してもらうだけです．
 
 ```python
 # SeleniumとChromedriverをpipでインストールしておく
@@ -102,18 +102,18 @@ driver.quit
 
 ![img](/media/gfa.webp)
 
-しっかり送信できました。
+しっかり送信できました．
 
 ## 定期イベントにする
-コードが書けたらあとは定期イベント化するだけなのですが、ここで少しつまづいたのでやり方を説明しておきます。
+コードが書けたらあとは定期イベント化するだけなのですが，ここで少しつまづいたのでやり方を説明しておきます．
 &nbsp;  
 &nbsp;  
-当初予定していた方法としてはAutomatorでアプリ化し、カレンダーに入れて毎日実行する方法([参考](https://qiita.com/baraobara/items/73d753c678e5c0e72f46#4-mac%E3%81%AE%E3%83%87%E3%83%95%E3%82%A9%E3%83%AB%E3%83%88%E3%81%AEautomator%E3%82%92%E7%94%A8%E3%81%84%E3%81%A6mac%E5%86%85%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%9C%E3%82%8B))。これなら報告しなくて良い日はカレンダーから外せば良いし、完璧なはず。と思ったのですが、PCをシャットダウンしていると動作しないためボツ。crontabに設定して定期イベント化する方法も同様の理由でボツ。
+当初予定していた方法としてはAutomatorでアプリ化し，カレンダーに入れて毎日実行する方法([参考](https://qiita.com/baraobara/items/73d753c678e5c0e72f46#4-mac%E3%81%AE%E3%83%87%E3%83%95%E3%82%A9%E3%83%AB%E3%83%88%E3%81%AEautomator%E3%82%92%E7%94%A8%E3%81%84%E3%81%A6mac%E5%86%85%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%9C%E3%82%8B))．これなら報告しなくて良い日はカレンダーから外せば良いし，完璧なはず．と思ったのですが，PCをシャットダウンしていると動作しないためボツ．crontabに設定して定期イベント化する方法も同様の理由でボツ．
 
-結局臨機応変にイベントの変更はできないものの、PCの状態にかかわらず実行してくれるAWSのLambdaを使用することに決めました。(Lambdaの使い方は[このサイト](https://www.wakuwakubank.com/posts/519-aws-lambda-introduction/)とかが参考になりました)
+結局臨機応変にイベントの変更はできないものの，PCの状態にかかわらず実行してくれるAWSのLambdaを使用することに決めました．(Lambdaの使い方は[このサイト](https://www.wakuwakubank.com/posts/519-aws-lambda-introduction/)とかが参考になりました)
 
-### LambdaのレイヤーにSeleniumとChromedriver、headless-chromiumを上げる
-Lambdaでライブラリを使うには各フォルダをzipに圧縮してレイヤーにアップロードする必要があります。今回はSeleniumとChromeのWebdriverであるChromedriver、それからChromeを開かずにスクレイピングを行うためのheadless-chromiumを使用するので、それぞれzipに圧縮してレイヤーに上げていきます。
+### LambdaのレイヤーにSeleniumとChromedriver，headless-chromiumを上げる
+Lambdaでライブラリを使うには各フォルダをzipに圧縮してレイヤーにアップロードする必要があります．今回はSeleniumとChromeのWebdriverであるChromedriver，それからChromeを開かずにスクレイピングを行うためのheadless-chromiumを使用するので，それぞれzipに圧縮してレイヤーに上げていきます．
 #### 1. Selenium
 ```
 mkdir selenium
@@ -124,25 +124,25 @@ pip install selenium -t .
 cd ../
 zip -r selenium.zip ./python
 ```
-できたzipファイルをそのままレイヤーにアップロードします。
+できたzipファイルをそのままレイヤーにアップロードします．
 #### 2. Chromedriverとheadless-chromium
 ```
 curl https://github.com/adieuadieu/serverless-chrome/releases/download/v1.0.0-55/stable-headless-chromium-amazonlinux-2017-03.zip > headless-chromium.zip
 curl https://chromedriver.storage.googleapis.com/2.43/chromedriver_linux64.zip > chromedriver.zip
 ```
-できた二つのzipファイルを解凍し、headless-chromeフォルダにまとめます。その後そのheadless-chromeをzipに圧縮してレイヤーにアップロードします。
+できた二つのzipファイルを解凍し，headless-chromeフォルダにまとめます．その後そのheadless-chromeをzipに圧縮してレイヤーにアップロードします．
 
 #### 3. レイヤーを関数に適用
-関数の下にある「Layers」を押し、下の「レイヤーの追加」ボタンから二つのレイヤを追加します
+関数の下にある「Layers」を押し，下の「レイヤーの追加」ボタンから二つのレイヤを追加します
 <img width="1612" alt="スクリーンショット 2020-08-07 18.36.45.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/502570/27d63d99-6a12-7370-3e32-46851977176f.png">
 
 
 #### ※注意※
-- Lambda関数のランタイムをPython3.8にするとChromedriverが動いてくれなかった(原因不明)ので、ランタイムはPython3.6か3.7に設定することをお勧めします。
-- headless-chromiumとChromedriverの間に互換性がないと動作しないので[こちら](http://chromedriver.chromium.org/downloads)から最新版を入手しても動作しない可能性があります。
+- Lambda関数のランタイムをPython3.8にするとChromedriverが動いてくれなかった(原因不明)ので，ランタイムはPython3.6か3.7に設定することをお勧めします．
+- headless-chromiumとChromedriverの間に互換性がないと動作しないので[こちら](http://chromedriver.chromium.org/downloads)から最新版を入手しても動作しない可能性があります．
 
 ### Lambda用にコードを少し変える
-筆者は今までCloud9以外のAWSツールを使ったことがないへっぽこコーダーなので、色んなサイトの見様見真似でなんとかLambdaで動くコードにしました。先人に感謝。
+筆者は今までCloud9以外のAWSツールを使ったことがないへっぽこコーダーなので，色んなサイトの見様見真似でなんとかLambdaで動くコードにしました．先人に感謝．
 
 ```python
 import json
@@ -158,7 +158,7 @@ def lambda_handler(event, context):
     # このオプション4つを付けないとChromeは起動せずエラーになります
     options.add_argument('--headless') # サーバーレスでChromeを起動
     options.add_argument('--no-sandbox') # sandbox外でChromeを起動
-    options.add_argument('--single-process') # タブ/サイトごとのマルチプロセスではなく、シングルプロセスへ切り替える
+    options.add_argument('--single-process') # タブ/サイトごとのマルチプロセスではなく，シングルプロセスへ切り替える
     options.add_argument('--disable-dev-shm-usage') # メモリファイルの出力場所を変える
     driver = webdriver.Chrome('/opt/headless-chrome/chromedriver',options = options)
     driver.implicitly_wait(1)
@@ -201,23 +201,23 @@ def lambda_handler(event, context):
 ```
 
 #### 注意点
-- Chromeの起動オプション```--headless```,```--no-sandbox```,```single-process```,```--disable-dev-shm-usage```を付けないとLambda上で正常に起動せず、エラーが出ます。各オプションについての詳細は[こちら](http://chrome.half-moon.org/43.html)をご覧ください
-- レイヤーにアップロードしたファイルはoptディレクトリの配下に置かれます。パスを指定する際はopt/ディレクトリ名/...の形で表記しましょう
+- Chromeの起動オプション```--headless```,```--no-sandbox```,```single-process```,```--disable-dev-shm-usage```を付けないとLambda上で正常に起動せず，エラーが出ます．各オプションについての詳細は[こちら](http://chrome.half-moon.org/43.html)をご覧ください
+- レイヤーにアップロードしたファイルはoptディレクトリの配下に置かれます．パスを指定する際はopt/ディレクトリ名/...の形で表記しましょう
 
 ### CloudWatch Eventsでトリガーを設定
-1. 関数の「Layers」をクリックして「トリガーを追加をクリック」し、ドロップダウンから「EventBridge (CloudWatch Events)」を選択します。
-2. ルールは「新規ルールの作成」で任意のルール名を入力。ルールタイプをスケジュール式にし、今回は毎日朝5時なので```corn(0 20 ? * * *)```と入力(LambdaはUTCでトリガーされるので9時間前をセットすることに留意)。トリガーを有効にして「追加」をクリックします。（cronの書き方は[こちら](https://qiita.com/tossh/items/e135bd063a50087c3d6a)をご覧ください）
+1. 関数の「Layers」をクリックして「トリガーを追加をクリック」し，ドロップダウンから「EventBridge (CloudWatch Events)」を選択します．
+2. ルールは「新規ルールの作成」で任意のルール名を入力．ルールタイプをスケジュール式にし，今回は毎日朝5時なので```corn(0 20 ? * * *)```と入力(LambdaはUTCでトリガーされるので9時間前をセットすることに留意)．トリガーを有効にして「追加」をクリックします．（cronの書き方は[こちら](https://qiita.com/tossh/items/e135bd063a50087c3d6a)をご覧ください）
 
 ![CloudWatchのスクショ](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/502570/2c07b4d3-295d-7543-7de7-dc8b0efaf40b.png)
 
 
 ## テスト
-最後にしっかり動くかテストしましょう。Lambda関数画面の「テスト」をクリックします。
+最後にしっかり動くかテストしましょう．Lambda関数画面の「テスト」をクリックします．
 ![Lambda関数画面のスクショ](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/502570/8418067e-0784-9b2c-feeb-624c132e277d.png)
-大丈夫そうですね。
+大丈夫そうですね．
 
 ## おわりに
-朝の検温はサボっていますが、寝る前にちゃんと測っているので安心してください。
+朝の検温はサボっていますが，寝る前にちゃんと測っているので安心してください．
 
 ## 参考文献
 https://masakimisawa.com/selenium_headless-chrome_python_on_lambda/

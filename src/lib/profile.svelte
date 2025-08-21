@@ -16,7 +16,7 @@
     <p class="bio-enname">Kota Yatagai</p>
     <p>
       {#if lang === 'ja'}
-      趣味でQUICなどのプロトコルに触れつつ、ソフトウェアエンジニアとして働いています。
+      趣味でQUICなどのプロトコルに触れつつ，ソフトウェアエンジニアとして働いています．
       詳細は<a href="https://kota-yata.com">kota-yata.com</a>をご覧ください
       {:else}
       Undergrads at Keio University. Software engineer intern at some software companies. For further information, visit <a href="https://kota-yata.com">kota-yata.com</a>

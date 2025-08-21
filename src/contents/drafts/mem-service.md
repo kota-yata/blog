@@ -6,12 +6,12 @@ description: 一記事に収まるほどしか続かなかったのが情けな�
 ogp: mem-service
 ---
 
-2021年の9月から2022年の6月にかけてしていたアメリカ留学中の日記を供養しようと思う。正確に言うと日記というより自分の英語力に関する愚痴の肥溜めかもしれない。良い気分になった時は大抵日記なんて書かずに寝てしまうので、何か自分の英語力に関して嫌なことがあった時、たとえば「3ヶ月も経ってるのに進歩してない...」みたいなストレスを文章に起こしたものが溜まったのが以下の文章である。
+2021年の9月から2022年の6月にかけてしていたアメリカ留学中の日記を供養しようと思う．正確に言うと日記というより自分の英語力に関する愚痴の肥溜めかもしれない．良い気分になった時は大抵日記なんて書かずに寝てしまうので，何か自分の英語力に関して嫌なことがあった時，たとえば「3ヶ月も経ってるのに進歩してない...」みたいなストレスを文章に起こしたものが溜まったのが以下の文章である．
 
 主な登場人物・団体を紹介しておくと
 - BadgerBOTS...僕が所属していたロボットチーム
-- Amy...BadgerBOTSの一員。最初に僕に話しかけてくれた
-- AntonとDaniel...ドイツからの留学生で僕の親友。英語が化け物みたいに上手い
+- Amy...BadgerBOTSの一員．最初に僕に話しかけてくれた
+- AntonとDaniel...ドイツからの留学生で僕の親友．英語が化け物みたいに上手い
 
 ## Nov.23 2021
 I got really depressed. This depression is probably the most serious one I've ever got. Today I talked to Amy, who was on BadgerBOTS. She said "I like the freckles on your face!". Since I have no idea what freckles meant, I told her that I was a foreign exchange student and I didn't know what that meant. I was already feeling depressed at this point because I didn't expect to use such an excuse 3 months after I came to this country. And what worse is I made pretty awkward conversation afterwards even though she tried so hard to make the conversation hyped up. Now I'm just deadly depressed and feeling sorry about what I did. That could have been more fun if I were Anton or Daniel. They would make it way more exciting and probably make the relationship closer than we are now. The only good thing is at least she didn't give up keeping the conversation and tried to give me some topics because obviously I don't have any freckles at all.
@@ -58,4 +58,4 @@ These days I found myself still trying to gloss over my sorry-ass English by lau
 ## June.07 2022
 I went to the movie with Daniel, Anton and Joey today, which is gonna be the last time we hang out together. Though their racist jokes were terrible and often pissed me off, I nailed this year because of them. We also talked about meeting up either in Germany or in Japan. We aren’t sure when, but someday, we will have shitty chat again.
 
-ネガティブなことばかり書いているので自分でも不安にはなるが、総じて留学は上手くいったと思う。英語力は悩みながらも、というか悩み続けたおかげでだいぶ成長したし、アメリカ人の言動の根幹にある思想とかモチベみたいなものも見えた。帰国してもう6ヶ月だが、未だに現地の友達とは連絡を取っているし今でも関係は変わっていない。大学に入ったら時間を見つけてヨーロッパに行こうと思う。
+ネガティブなことばかり書いているので自分でも不安にはなるが，総じて留学は上手くいったと思う．英語力は悩みながらも，というか悩み続けたおかげでだいぶ成長したし，アメリカ人の言動の根幹にある思想とかモチベみたいなものも見えた．帰国してもう6ヶ月だが，未だに現地の友達とは連絡を取っているし今でも関係は変わっていない．大学に入ったら時間を見つけてヨーロッパに行こうと思う．

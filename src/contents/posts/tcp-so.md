@@ -2,45 +2,45 @@
 title: TCP Simultaneous Openを試す
 date: 2022-11-03
 category: Computer
-description: 同時にSYNパケットを送り合う、TCPホールパンチングの手法の一つ
+description: 同時にSYNパケットを送り合う，TCPホールパンチングの手法の一つ
 ogp: tcp-so
 ---
 
-9月末に[Protocol Lab Research](https://research.protocol.ai)が公開したカンファレンスペーパー:[Decentralized Hole Punching](https://research.protocol.ai/publications/decentralized-hole-punching/)の中でTCPにおけるホールパンチングの手法の一つとしてTCP Simultaneous Openなるものが挙げられていたので調べてみた。手法の解説の後にC言語での実装例を紹介する。
+9月末に[Protocol Lab Research](https://research.protocol.ai)が公開したカンファレンスペーパー:[Decentralized Hole Punching](https://research.protocol.ai/publications/decentralized-hole-punching/)の中でTCPにおけるホールパンチングの手法の一つとしてTCP Simultaneous Openなるものが挙げられていたので調べてみた．手法の解説の後にC言語での実装例を紹介する．
 
 [実装のリポジトリ](https://github.com/kota-yata/tcp-simultaneous-open)
 
 ## 通常のTCP通信とP2P通信
-通常のTCPでのクライアント-サーバー型通信はThree-Way Handshakeで確立される。まずクライアント側がSYNパケットをサーバー側に送り、サーバー側がSYN-ACKを返し、クライアントがそれに対するACKを返したのちデータのやり取りが始まる。
+通常のTCPでのクライアント-サーバー型通信はThree-Way Handshakeで確立される．まずクライアント側がSYNパケットをサーバー側に送り，サーバー側がSYN-ACKを返し，クライアントがそれに対するACKを返したのちデータのやり取りが始まる．
 
 ![TCP-3way-handshake](/media/tcp-so-3way-handshake.png)
 
-ここで前提となっているのが、サーバー側がNATを介していないことである。サーバー側が常にポートを開いていてクライアント側がそこに常にアクセスできる状態にあるからこそこの通信方式は成り立っており、この前提が崩れるのがP2P通信の場合である。P2P通信そのものの説明は省くが、**僕達が日常的に使うようなローカルネットワークの内側にあるコンピューター同士で通信する必要が生まれる**というのがその最も大きな特性である。ローカルネットワークの内側にあるということはほとんどの場合NATの背後にあるということであり、その障壁を越えるのがNAT Traversalであり、ホールパンチングなのである。
+ここで前提となっているのが，サーバー側がNATを介していないことである．サーバー側が常にポートを開いていてクライアント側がそこに常にアクセスできる状態にあるからこそこの通信方式は成り立っており，この前提が崩れるのがP2P通信の場合である．P2P通信そのものの説明は省くが，**僕達が日常的に使うようなローカルネットワークの内側にあるコンピューター同士で通信する必要が生まれる**というのがその最も大きな特性である．ローカルネットワークの内側にあるということはほとんどの場合NATの背後にあるということであり，その障壁を越えるのがNAT Traversalであり，ホールパンチングなのである．
 
-ビデオチャットなどで主に使われるP2P通信の特性上ホールパンチングは通常UDP上で行われるものである。流れは以下の通り。
+ビデオチャットなどで主に使われるP2P通信の特性上ホールパンチングは通常UDP上で行われるものである．流れは以下の通り．
 1. 発信側は[STUNサーバー](https://tex2e.github.io/rfc-translater/html/rfc5389.html)を用いて自分の外部IPアドレス（Reflexive Addressという）とポートを取得する
-2. 発信側は[シグナリングサーバー](https://webrtcforthecurious.com/ja/docs/02-signaling/)から得た情報をもとに受信側にパケットを送る。この時点でNATに該当アドレスがマッピングされる
-3. 2.のパケットは受信側に到達せず破棄されるが、今度は受信側が発信側にパケットを送る
-4. 3.のパケットは、送信側のポートが既に開いているので正常に到達する。これにより双方での通信が可能になる
+2. 発信側は[シグナリングサーバー](https://webrtcforthecurious.com/ja/docs/02-signaling/)から得た情報をもとに受信側にパケットを送る．この時点でNATに該当アドレスがマッピングされる
+3. 2.のパケットは受信側に到達せず破棄されるが，今度は受信側が発信側にパケットを送る
+4. 3.のパケットは，送信側のポートが既に開いているので正常に到達する．これにより双方での通信が可能になる
 
 ![UDP-Hole-Punching](/media/tcp-so-udp-hole-punching.png)
 
-ここで注意したいのは、STUNサーバーと受信側に向けての外部アドレスが異なる場合このホールパンチングは成立しない。このようなNATのタイプを[Symmetric NAT](https://en.wikipedia.org/wiki/Network_address_translation)といい、この場合TURNサーバーを用いて実質クライアント-サーバー型通信を行うしか方法はない。
+ここで注意したいのは，STUNサーバーと受信側に向けての外部アドレスが異なる場合このホールパンチングは成立しない．このようなNATのタイプを[Symmetric NAT](https://en.wikipedia.org/wiki/Network_address_translation)といい，この場合TURNサーバーを用いて実質クライアント-サーバー型通信を行うしか方法はない．
 
 ## TCP Simultaneous Open
-TCP上でホールパンチングを試みる場合、UDPと全く同じ方法では成功しない。上で述べたようにTCPはThree-Way Handshakeが原則であり、最初のSYNパケットが到達しなかった時点で通信がリセットされポートが閉じてしまうからである。しかし、実はThree-Way Handshakeの原則をすり抜けてホールパンチングを成功させる裏技的手法が存在する。それが**TCP Simultaneous Open**である。頑なに英語で書いているのは適切で自然な和訳が浮かばないからだが、強いて訳すならTCP同時開通になるだろうか。裏技"的"と書いたのは、手法はいささか力技っぽいがしっかり[RFC793](https://www.rfc-editor.org/rfc/rfc793)に記載されている仕様だからである。
+TCP上でホールパンチングを試みる場合，UDPと全く同じ方法では成功しない．上で述べたようにTCPはThree-Way Handshakeが原則であり，最初のSYNパケットが到達しなかった時点で通信がリセットされポートが閉じてしまうからである．しかし，実はThree-Way Handshakeの原則をすり抜けてホールパンチングを成功させる裏技的手法が存在する．それが**TCP Simultaneous Open**である．頑なに英語で書いているのは適切で自然な和訳が浮かばないからだが，強いて訳すならTCP同時開通になるだろうか．裏技"的"と書いたのは，手法はいささか力技っぽいがしっかり[RFC793](https://www.rfc-editor.org/rfc/rfc793)に記載されている仕様だからである．
 > The "three-way handshake" is the procedure used to establish a connection.  This procedure normally is initiated by one TCP and responded to by another TCP.  The procedure also works if two TCP simultaneously initiate the procedure.  When simultaneous attempt occurs, each TCP receives a "SYN" segment which carries no acknowledgment after it has sent a "SYN".
 (セクション3.4より)
 
-手順は簡単で、双方が相手のアドレスを取得したのち同時にSYNパケットを送り合うだけである。もっと言うと正確に同時である必要はなく、一方が送ったパケットがもう一方に到達する前にもう一方がパケットを送れば良い。それが成功すれば、あとは双方がSYN+ACKパケットを返して通信は確立される。
+手順は簡単で，双方が相手のアドレスを取得したのち同時にSYNパケットを送り合うだけである．もっと言うと正確に同時である必要はなく，一方が送ったパケットがもう一方に到達する前にもう一方がパケットを送れば良い．それが成功すれば，あとは双方がSYN+ACKパケットを返して通信は確立される．
 
 ![TCP-Simultaneous-Open](/media/tcp-so-tso.png)
 
-現実問題タイミングを合わせてパケットを送り合うというのはすごく難しいかつ効率的でないのであまり実際の実装でこの手法が使われているものは見つからないが、方法として可能であることはわかったので今度は実際に書いて動かしてみる。
+現実問題タイミングを合わせてパケットを送り合うというのはすごく難しいかつ効率的でないのであまり実際の実装でこの手法が使われているものは見つからないが，方法として可能であることはわかったので今度は実際に書いて動かしてみる．
 
 ## 実装
 ### STUNクライアント
-STUNサーバーに問い合わせるクライアントコードはソースコードを貼るだけで省略するが、注意点としてはクライアント側でもソケットをbindする必要があることが挙げられる。実際の通信試行の際に使うローカルポートにbindしてからサーバーに問い合わせないと、NAPTなどで別の外部ポートにマッピングされている場合に接続が上手くいかなくなってしまう。
+STUNサーバーに問い合わせるクライアントコードはソースコードを貼るだけで省略するが，注意点としてはクライアント側でもソケットをbindする必要があることが挙げられる．実際の通信試行の際に使うローカルポートにbindしてからサーバーに問い合わせないと，NAPTなどで別の外部ポートにマッピングされている場合に接続が上手くいかなくなってしまう．
 ```c
 int main(int argc, char *argv[]) {
   int descriptor = -1;
@@ -125,14 +125,14 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 ```
-以下ではSTUNサーバーとして[STUNTMAN](https://www.stunprotocol.org/)を利用するが、TCPに対応しているSTUNサーバーであれば何でも良い。
+以下ではSTUNサーバーとして[STUNTMAN](https://www.stunprotocol.org/)を利用するが，TCPに対応しているSTUNサーバーであれば何でも良い．
 ```
 $ ./a.out 44444 18.191.223.12 3478
 ```
-途中のBinding Requestに関してはメッセージの形式が決まっているので[こちら](https://webrtcforthecurious.com/ja/docs/03-connecting/)などを参考にすると理解しやすいかも。レスポンスに関しても明確に仕様でヘッダーサイズやフラグが定められているのでそれに従ってパースしている。
+途中のBinding Requestに関してはメッセージの形式が決まっているので[こちら](https://webrtcforthecurious.com/ja/docs/03-connecting/)などを参考にすると理解しやすいかも．レスポンスに関しても明確に仕様でヘッダーサイズやフラグが定められているのでそれに従ってパースしている．
 
 ### ホールパンチング
-TCP Simultaneous Openのメインとなる実装。流れとしてはソケットを作ってbindし、GMTでタイミングを合わせて同時にconnectするという形になる。
+TCP Simultaneous Openのメインとなる実装．流れとしてはソケットを作ってbindし，GMTでタイミングを合わせて同時にconnectするという形になる．
 GMTでタイミングを合わせる部分の関数が以下である:
 ```c
 int get_remaining_msec() {
@@ -145,7 +145,7 @@ int get_remaining_msec() {
   return sec * 1000000 + ms;
 }
 ```
-秒数とマイクロ秒数が共に0になる(xx:00.00)まで待つ処理だが、ここでマイクロ秒まで計算しないとわずかにconnectのタイミングがずれてしまい接続できなくなってしまう。コンピューターの物理的な場所の違いにもよるが元々NTP時間との差異もあるため正確にタイミングする必要がある。
+秒数とマイクロ秒数が共に0になる(xx:00.00)まで待つ処理だが，ここでマイクロ秒まで計算しないとわずかにconnectのタイミングがずれてしまい接続できなくなってしまう．コンピューターの物理的な場所の違いにもよるが元々NTP時間との差異もあるため正確にタイミングする必要がある．
 
 `get_remaining_sec`を用いた全体のコードは以下である:
 ```c
@@ -206,7 +206,7 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-実装としてはそこまで難しいものではないが、テストをする段階でSymmetric NATの背後にないコンピューターを二つ用意するのに若干手間取った。元々Mac一台しか手元にない僕はサーバーやVPS代をケチってGitHub Codespaceを利用しようとした。が、2日ほどの浪費を経てCodespaceのVMはSymmetric NATの背後にあることが判明したのである。Codespace側のtcpdumpでそもそもパケットが届いていない時点で気付くべきだったが、NATのタイプよりも自分のコードを疑ってしまい無駄な時間を過ごしてしまった。最終的にさくらインターネットのレンタルサーバーが2週間無料(2022/11/3現在)だったのでそちらを借りてテストを行った。これでは片方が静的サーバーなのでp2p通信と言えるのかどうかすら怪しいが背に腹は代えられない。
+実装としてはそこまで難しいものではないが，テストをする段階でSymmetric NATの背後にないコンピューターを二つ用意するのに若干手間取った．元々Mac一台しか手元にない僕はサーバーやVPS代をケチってGitHub Codespaceを利用しようとした．が，2日ほどの浪費を経てCodespaceのVMはSymmetric NATの背後にあることが判明したのである．Codespace側のtcpdumpでそもそもパケットが届いていない時点で気付くべきだったが，NATのタイプよりも自分のコードを疑ってしまい無駄な時間を過ごしてしまった．最終的にさくらインターネットのレンタルサーバーが2週間無料(2022/11/3現在)だったのでそちらを借りてテストを行った．これでは片方が静的サーバーなのでp2p通信と言えるのかどうかすら怪しいが背に腹は代えられない．
 
 上のコードをしかるべきコンピューター間で実行すると以下のようなプロンプトが表示される:
 ```
@@ -217,6 +217,6 @@ Received: Hello :)
 ```
 
 ## おわりに
-頭のカンファレンスペーパーで紹介されている分散型ホールパンチングの手法は既にlibp2pに実装されており、成功率はUDPとQUICで90%以上、TCPではそれ以下とのこと（参照: 著者[Max Inden](https://twitter.com/mxinden)氏によるプレゼン[Libp2p Hole Punching](https://www.youtube.com/watch?v=pSXlpKlZX7I) ）。まあ数字を出さないあたりあまり高くない、かつそもそもTCP上でlibp2pを使うケースが多くないことが予想できる。
+頭のカンファレンスペーパーで紹介されている分散型ホールパンチングの手法は既にlibp2pに実装されており，成功率はUDPとQUICで90%以上，TCPではそれ以下とのこと（参照: 著者[Max Inden](https://twitter.com/mxinden)氏によるプレゼン[Libp2p Hole Punching](https://www.youtube.com/watch?v=pSXlpKlZX7I) ）．まあ数字を出さないあたりあまり高くない，かつそもそもTCP上でlibp2pを使うケースが多くないことが予想できる．
 
-先にも述べたが上のコードは[こちらのリポジトリ](https://github.com/kota-yata/tcp-simultaneous-open)で管理している。
+先にも述べたが上のコードは[こちらのリポジトリ](https://github.com/kota-yata/tcp-simultaneous-open)で管理している．
