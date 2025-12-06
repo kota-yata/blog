@@ -3,7 +3,10 @@
   import '../styles/fonts.scss';
   import '../styles/a11y-dark.min.css';
   import '../styles/katex.min.css';
-  import { injectAnalytics } from '@vercel/analytics/sveltekit'
+  import { dev } from '$app/environment';
+  import { injectAnalytics } from '@vercel/analytics/sveltekit';
+
+  injectAnalytics({ mode: dev ? 'development' : 'production' });
 </script>
 
 <main>
