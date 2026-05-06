@@ -7,8 +7,8 @@ html, body {
   overflow-x: hidden;
   background: $background;
   color: $primary;
-  font-size: 16px;
-  font-family: 'Inter', 'ヒラギノ角ゴ ProN', 'Noto Sans JP', Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  font-family: 'gen-interface-jp', Arial, Helvetica, sans-serif;
   font-weight: 400;
 }
 
@@ -60,7 +60,7 @@ p {
   margin: 0;
   color: $p-letter;
   line-height: 1.7;
-  letter-spacing: 0.25px;
+  letter-spacing: 0.3px;
   padding-top: 10px;
   padding-bottom: 10px;
   width: calc(100% - 10px);
@@ -91,7 +91,7 @@ select {
   color: $gray;
   border: none;
   margin-right: 20px;
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-family: 'gen-interface-jp', Arial, Helvetica, sans-serif;
   font-size: 16px;
 }
 img {
@@ -191,7 +191,7 @@ blockquote {
 @media screen and (max-width: 700px) {
   body,html {
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 400;
   }
   h1 {
     font-size: 28px;
@@ -210,7 +210,7 @@ blockquote {
   }
   p {
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 400;
   }
 
   .post {
