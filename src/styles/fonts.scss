@@ -1,27 +1,27 @@
 @font-face {
   font-family: 'gen-interface-jp';
-  src: local('gen-interface-jp'), url('/fonts/gen-interface-jp/regular.ttf') format('truetype');
+  src: local('gen-interface-jp'), url('/fonts/gen-interface-jp/subset/regular.ttf') format('truetype');
   font-weight: 400;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'gen-interface-jp';
-  src: local('gen-interface-jp'), url('/fonts/gen-interface-jp/medium.ttf') format('truetype');
+  src: local('gen-interface-jp'), url('/fonts/gen-interface-jp/subset/medium.ttf') format('truetype');
   font-weight: 500;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'gen-interface-jp';
-  src: local('gen-interface-jp'), url('/fonts/gen-interface-jp/semibold.ttf') format('truetype');
+  src: local('gen-interface-jp'), url('/fonts/gen-interface-jp/subset/semibold.ttf') format('truetype');
   font-weight: 600;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'gen-interface-jp';
-  src: local('gen-interface-jp'), url('/fonts/gen-interface-jp/bold.ttf') format('truetype');
+  src: local('gen-interface-jp'), url('/fonts/gen-interface-jp/subset/bold.ttf') format('truetype');
   font-weight: 700;
   font-display: swap;
 }

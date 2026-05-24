@@ -4,4 +4,5 @@ node_modules
 /package
 .vercel_build_output
 /build
+/static/fonts/gen-interface-jp/subset
 .env
