@@ -4,10 +4,15 @@
   import '../styles/a11y-dark.min.css';
   import '../styles/katex.min.css';
   import { dev } from '$app/environment';
-  import { injectAnalytics } from '@vercel/analytics/sveltekit';
 
-  injectAnalytics({ mode: dev ? 'development' : 'production' });
+  const analyticsSrc = dev
+    ? 'https://va.vercel-scripts.com/v1/script.debug.js'
+    : '/_vercel/insights/script.js';
 </script>
+
+<svelte:head>
+  <script defer src={analyticsSrc}></script>
+</svelte:head>
 
 <main>
   <slot />
