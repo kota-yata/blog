@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "npm run build:fonts &&vite dev --host 0.0.0.0",
-    "build": "npm run build:fonts && vite build",
+    "dev": "vite dev --host 0.0.0.0",
+    "build": "vite build",
     "build:fonts": "node scripts/build-font-subset.js",
-    "preview": "npm run build:fonts && vite preview",
+    "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
